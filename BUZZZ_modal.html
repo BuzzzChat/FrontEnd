@@ -526,7 +526,7 @@ window.onclick = function(event) {
 		document.querySelector('.wyslij .btn_lewy').addEventListener('click', event => {
 			let input = document.getElementById('message_input');
 			if (input.value) {
-				wiadomosc(1, 'J', input.value);
+				setTimeout(wiadomosc, Math.random() * 1000 + 200, 1, 'J', input.value);
 			}
 			input.value = '';
 		});
