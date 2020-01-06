@@ -376,26 +376,7 @@
 				 <!-- Rozmowa -->
 				 <div class = "czat">
 					 <div class="scrollbox">
-						 <div class = "wiadomosc_znajomego">
-							 <div class = "avatar">
-								 <span>M</span>
-							 </div>
-							 <div class = "dymek">
-								 <div class = "dymek_znajomego">
-									 <p> Cześć! Co tam u Ciebie słychać? </p>
-								 </div>
-							 </div>
-						 </div>
-						 <div class = "wiadomosc_moja">
-							 <div class = "avatar">
-								 <span>J</span>
-							 </div>
-							 <div class = "dymek">
-								 <div class = "moj_dymek">
-									 <p> Hej! Wszystko dobrze. Strasznie fajny ten czat! </p>
-								 </div>
-							 </div>
-						 </div>
+						 <!-- przeniesione do JS -->
 						 <div class="anchor"></div>
 					 </div>
 				 </div>
@@ -490,5 +471,45 @@ window.onclick = function(event) {
   }
 }
 	 </script>
+	<script>
+		let messages = [
+			[0, 'M', 'Cześć! Co tam u Ciebie słychać?'],
+			[1, 'J', 'Hej! Wszystko dobrze. Strasznie fajny ten czat!'],
+			[0, 'M', 'Wiadomość 1'],
+			[1, 'J', 'Wiadomość 2']
+		];
+
+		function wiadomosc(czy_wychodzaca, inicjal, tresc) {
+			let klasa = czy_wychodzaca ? 'wiadomosc_moja' : 'wiadomosc_znajomego';
+			let div = document.createElement('div');
+			div.innerHTML = `<div class = "${klasa}">
+										<div class = "avatar">
+												<span>${inicjal}</span>
+										</div>
+										<div class = "dymek">
+												<div class = "dymek_znajomego">
+														<p>${tresc}</p>
+												</div>
+										</div>
+								</div>`;
+			return div.firstChild;
+		}
+
+		let scroller = document.querySelector('.czat .scrollbox');
+		let anchor = document.querySelector('.czat .scrollbox .anchor');
+
+		function dodaj_wiadomosc() {
+			let [czy_moja, inicjal, tresc] = messages[0];
+			let msg = wiadomosc(czy_moja, inicjal, tresc);
+			messages.shift();
+			scroller.insertBefore(msg, anchor);
+			if (messages.length) {
+				setTimeout(dodaj_wiadomosc, 1000);
+			}
+		}
+
+		setTimeout(dodaj_wiadomosc, 1000);
+	</script>
+
 	</body>
 </html>
