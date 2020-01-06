@@ -11,7 +11,9 @@
 	</head>
 	<style>
 :root{
-	--zolty:  #FFE230;
+	--zolty:  #FADE2a;
+	--grey: #36342A;
+	--black: #000000;
 }
 
 	body{
@@ -32,7 +34,7 @@
 
 	.lewy{
 		width: 23%;
-		background-color: grey;
+		background-color: var(--grey);
 		flex-direction: column;
 	}
 
@@ -96,15 +98,28 @@
 		justify-content: space-between;
 	}
 	.wpisywanie_wiadomosci{
-		flex-grow: 6;
+		flex-grow: 7;
+	}
+	::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+	  color: grey;
+	  opacity: 1; /* Firefox */
+	}
+
+	.wpisywanie{
+		
 	}
 	.wpisywanie_wiadomosci input{
+		margin: 10px;		
 		width: 100%;
 		height: 60%;
 	}
 
+	input{
+		background-color: var(--black);
+		border-color: var(--zolty);
+
+	}
 	.ikony_wiadomosci{
-		flex-grow: 1;
 	}
 	.nazwa_znajomego{
 		flex-grow: 6;
@@ -114,9 +129,9 @@
 		flex-grow: 1;
 	}
 	.ikony_uzytkownika{
-
-
+		
 	}
+
 
 	.ikony_w_lewym{
 		font-size: 1em;
@@ -156,10 +171,11 @@
 	}
 
 	.btn_lewy{
-		background-color: grey;
+		background-color: var(--grey);
 		border: none;
 		cursor: pointer;
 		color: black;
+		font-size: 1.05em;
 	}
 
 	.btn_prawy{
@@ -237,7 +253,7 @@
 					 <input type = "text" placeholder="Szukaj...">
 				 </div>
 				 <div class = "przycisk">
-					 <button>Wyszukaj</button>
+					 <button class = "btn_lewy"><i class="material-icons">search</i></button>
 				 </div>
 			 </div>
 			 <!-- Znajomi -->
@@ -352,9 +368,11 @@
 					 <div class = "wpisywanie_wiadomosci">
 						 <input type = "text" placeholder = "Napisz wiadomosc...">
 					 </div>
-					 <div class = "wyslij">
-						 <button>Wyślij</button>
-					 </div>
+					 <div class = "ikony_wiadomosci">
+					 	<div class = "wyslij">
+						 <button class = "btn_lewy"><i class="material-icons">send</i></button>
+					 	</div>
+					</div>
 				 </div>
 			 </div>
 		 </div>
@@ -364,6 +382,9 @@
 	 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	 <script>
+
+		<script src="http://livejs.com/live.js"	></script>
+
 // Edycja profilu
 var modal_edycja = document.getElementById("Edycja");
 var btn = document.getElementById("btn_edycja");
