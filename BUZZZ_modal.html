@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow|Material+Icons&display=swap" rel="stylesheet">
+
+    <title> BUZZZ </title>
+  </head>
+ <style>
+
+ :root{
+	--zolty:  #FFE230;
+ }
+
+	body{
+    font-family: 'PT Sans Narrow', sans-serif;
+		font-size: 150%;
+		padding: 0;
+		margin: 0;
+
+	}
+	div{
+		display: flex;
+	}
+
+	.split{
+	  flex-direction: row;
+		height: 100vh;
+	}
+	
+	.lewy{
+		width: 23%;
+		background-color: grey;
+		flex-direction: column;
+	}
+
+	.prawy{
+		flex-grow: 2;
+		background-color: black;
+  }
+	
+	.listy{
+		flex-grow: 1;
+		flex-direction: column;
+	}
+
+  .material-icons{
+		font-size: 1.25em;
+		padding: 10px;
+	}
+	.icon-text {
+		font-size: 1em;
+		padding: 0;
+    display: inline-flex;
+    vertical-align: middle !important;
+	}
+
+	.naglowek{
+		flex-direction: row;
+		justify-content: space-between;	
+	}
+
+	.user{
+		width: 30px;
+		height: 30px;
+		background-color: black;
+	}
+
+	.wyszukiwarka{
+		flex-direction: row;
+		}
+
+	h1{
+		width: 100%;
+		color: white;
+	}
+
+	.split2{
+		flex-direction: column;
+		justify-content: space-between;
+		width: 100%;
+	}
+  .naglowek_rozmowy{
+		flex-direction: row;
+		height: 3em;
+		background-color: var(--zolty);
+		width: 100%;
+	}
+
+	.wiadomosc{
+		height:3em;
+		background-color: #36342a;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	.wpisywanie_wiadomosci{
+		flex-grow: 6;
+	}
+	.wpisywanie_wiadomosci input{
+		width: 100%;
+		height: 60%;
+	}
+
+	.ikony_wiadomosci{
+		flex-grow: 1;
+	}
+	.nazwa_znajomego{
+		flex-grow: 6;
+		padding: 10px;
+	}
+	.ikony_znajomego{
+		flex-grow: 1;
+	}
+	.ikony_uzytkownika{
+
+
+	}
+
+	.ikony_w_lewym{
+		font-size: 1em;
+	}
+
+ .avatar {
+	  vertical-align: middle;
+	  width: 60px;
+	  height: 60px;
+	  border-radius: 50%;
+	  margin: 10px;
+	}
+
+	.dymek {
+		margin-bottom: 10px;
+	}
+	.czat{
+		height: 100%;
+		flex-direction: column;
+		justify-content: flex-end;
+	}
+	.dymek_znajomego{
+	  border: 2px solid #dedede;
+	  border-radius: 5px;
+		background-color: #f1f1f1;
+	}
+	.wiadomosc_znajomego{
+		justify-content: flex-start;
+	}
+	.moja_wiadomosc{
+		justify-content: flex-end;
+	}
+	.moj_dymek{
+	  border: 2px solid #dedede;
+	  border-radius: 5px;
+		background-color: grey;
+	}
+
+	.btn_lewy{
+		background-color: grey;
+		border: none;
+		cursor: pointer;
+		color: black;
+	}
+	
+	.btn_prawy{
+		background-color: var(--zolty);
+		border: none;
+		cursor: pointer;
+		color: black;
+	}
+
+	.Grupowy_czat{
+		justify-content: space-between;
+	}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+ </style>
+
+     <!-- BODY -->
+ <body>
+	<div class = "split">
+		<!-- Lewa podstrona-znajomi, wyszukiwarka, ustawienia profilu i wylogowanie -->
+		<div class = "lewy">
+				<div class = "naglowek">
+					<div class = "ikony_uzytkownika">					
+					<!-- Edycja profilu -->
+						<button id = "btn_edycja" class = "btn_lewy">
+							<i class="material-icons">&#xe8b8;</i>
+						</button>				
+					</div>
+					<div class = "user">
+												
+					</div>
+					<div class = "ikony_uzytkownika">					
+						<i class="material-icons">&#xe879;</i>
+					</div>
+				</div>
+			<!-- Wyszukiwarka -->
+        <div class = "wyszukiwarka">
+						<div class = "wpisywanie">
+							<input type = "text" placeholder="Szukaj...">
+						</div>
+						<div class = "przycisk">
+							<button>Wyszukaj</button>
+						</div>
+				</div>
+			<!-- Znajomi -->
+ 			  <div class = "listy">
+					<div class = "znajomi">
+						<a> Znajomi </a>
+					</div>
+			<!-- Czat grupowy -->
+					<div class = "czat_grupowy">
+						<div = "Grupowy_czat">
+							<a> Czat grupowy </a>
+								<i class="material-icons icon-text">add</i>				
+						</div>
+					</div>
+			<!-- Zaproszenia -->
+					<div class = "Zaproszenia">
+						<a> Zaproszenia do znajomych </a>
+					</div>
+				</div>
+		 </div>
+		<!-- Ekran rozmowy -->
+		<div class = "prawy">
+ <!-- MODALE -->
+		<!-- Edycja profilu modal-->
+			<div id="Edycja" class="modal">
+			  <div class="modal-content">
+			    <span class="close_edycja">&times;</span>
+				    <p>Edycja profilu</p>
+			  </div>
+			</div>
+			<div id="Zmiana" class="modal">
+			  <div class="modal-content">
+			    <span class="close_zmiana">&times;</span>
+				    <p>Zmiana nazwy</p>
+			  </div>
+			</div>
+			<div id="Blokowanie" class="modal">
+				<div class="modal-content">
+			    <span class="close_blok">&times;</span>
+				    <p>Czy na pewno chcesz zablokować tego użytkownika?</p>
+			  </div>
+			</div>
+			<div id="Usuwanie" class="modal">
+				<div class="modal-content">
+			    <span class="close_usuw">&times;</span>
+				    <p>Czy na pewno chcesz usunąć tego użytkownika?</p>
+			  </div>
+			</div>
+<!-- KONIEC MODALI -->
+			<div class = "split2">
+				<!-- Naglowek znajomego -->			
+				<div class = "naglowek_rozmowy">
+					<div class = "nazwa_znajomego">
+						<a> Nazwa znajomego</a>
+					</div>				
+					<div class = ikony_znajomego">
+						<div class = "Zmiana">
+							<button id = "btn_zmiana" class = "btn_prawy">
+								<i class="material-icons">edit</i>
+							</button>					
+						</div>
+						<!-- Blokowanie -->
+					  <div class = "blokowanie">
+							<button id = "btn_blok" class = "btn_prawy">
+								<i class="material-icons">block</i>
+							</button>						
+						</div>
+						<!-- Usuwanie -->
+						<div class = "Usuwanie">
+							<button id = "btn_usuw" class = "btn_prawy">
+								<i class="material-icons">delete</i>
+							</button>						
+						</div>
+					</div>
+				</div>
+			<!-- Rozmowa -->
+				<div class = "czat">
+					<div class = "wiadomosc_znajomego">
+						<div class = "avatar_znajomego">
+							<img src="firstletter.png" alt = "Avatar" class = "avatar">
+						</div>
+						<div class = "dymek">
+							<div class = "dymek_znajomego">
+								<p> Cześć! Co tam u Ciebie słychać? </p>
+							</div>
+						</div>
+					</div>
+					<div class = "moja_wiadomosc">
+						<div class = "dymek">
+							<div class = "moj_dymek">
+								<p> Hej! Wszystko dobrze. Strasznie fajny ten czat! </p>
+							</div>
+						</div>
+						<div class = moj_avatar">
+							<img src = "avatar.png" alt = "Avatar" class = "avatar">
+						</div>
+					</div>
+				</div>
+			<!-- Pisanie wiadomosci, wysylanie plikow, zdjec itp -->
+				<div class = "wiadomosc">
+					<div class = "ikony_wiadomosci">
+						<div class = "plik">
+							<i class="material-icons">insert_drive_file</i>
+						</div>
+						<div class = "zdjecie">
+								<i class="material-icons">add_photo_alternate</i>
+						</div>
+						<div class = "emoji">
+							<i class="material-icons">insert_emoticon</i>
+						</div>
+					</div>
+					<div class = "wpisywanie_wiadomosci">
+						<input type = "text" placeholder = "Napisz wiadomosc...">
+					</div>
+					<div class = "wyslij">
+						<button>Wyślij</button>
+					</div>
+				</div>			
+			</div>
+		</div>
+	</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script>
+// Edycja profilu
+var modal_edycja = document.getElementById("Edycja");
+var btn = document.getElementById("btn_edycja");
+var span_edycja = document.getElementsByClassName("close_edycja")[0];
+btn.onclick = function() {
+  modal_edycja.style.display = "block";
+}
+span_edycja.onclick = function() {
+  modal_edycja.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal_edycja) {
+    modal_edycja.style.display = "none";
+  }
+}
+
+// Zmiana nazwy
+var modal_zmiana = document.getElementById("Zmiana");
+var btn_zmiana = document.getElementById("btn_zmiana");
+var span_zmiana = document.getElementsByClassName("close_zmiana")[0];
+btn_zmiana.onclick = function() {
+  modal_zmiana.style.display = "block";
+}
+span_zmiana.onclick = function() {
+  modal_zmiana.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal_zmiana) {
+    modal_zmiana.style.display = "none";
+  }
+}
+
+//blokowanie
+var modal_blok = document.getElementById("Blokowanie");
+var btn_blok = document.getElementById("btn_blok");
+var span_blok = document.getElementsByClassName("close_blok")[0];
+btn_blok.onclick = function() {
+  modal_blok.style.display = "block";
+}
+span_blok.onclick = function() {
+  modal_blok.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal_blok) {
+    modal_blok.style.display = "none";
+  }
+}
+
+//Usuwanie
+var modal_usuw = document.getElementById("Usuwanie");
+var btn_usuw = document.getElementById("btn_usuw");
+var span_usuw = document.getElementsByClassName("close_usuw")[0];
+btn_usuw.onclick = function() {
+  modal_usuw.style.display = "block";
+}
+span_usuw.onclick = function() {
+  modal_usuw.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal_usuw) {
+    modal_usuw.style.display = "none";
+  }
+}
+</script>
+  </body>
+</html>
