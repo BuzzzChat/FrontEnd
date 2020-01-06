@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 		<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow|Material+Icons&display=swap" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" rel="stylesheet">
 
 		<title>BUZZZ</title>
 	</head>
@@ -14,6 +15,7 @@
 	--zolty:  #FADE2a;
 	--grey: #36342A;
 	--black: #000000;
+	--avatar-size: 1.5em;
 }
 
 	body{
@@ -138,15 +140,28 @@
 	}
 
 	.avatar {
-		vertical-align: middle;
-		width: 60px;
-		height: 60px;
+		background-color: var(--zolty);
 		border-radius: 50%;
+		width: var(--avatar-size);
+		height: var(--avatar-size);
 		margin: 10px;
+		vertical-align: middle;
+		text-align: center;
+	}
+	.avatar span {
+		font-size: calc(var(--avatar-size) * 0.75);
+		line-height: 1;
+		position: relative;
+		top: 12.5%;
+		width: 100%;
 	}
 
 	.dymek {
-		margin-bottom: 10px;
+		padding: 0.25em;
+		min-height: var(--avatar-size);
+	}
+	.dymek p {
+		margin: 0 auto;
 	}
 	.czat{
 		height: 100%;
@@ -173,21 +188,30 @@
 		/* anchor nodes are required to have non-zero area */
 		height: 1px;
 	}
-	.dymek_znajomego{
-		border: 2px solid #dedede;
-		border-radius: 5px;
-		background-color: #f1f1f1;
+
+	.wiadomosc_znajomego, .wiadomosc_moja {
+		margin-bottom: 0.5em;
+		align-items: flex-end;
 	}
 	.wiadomosc_znajomego{
 		justify-content: flex-start;
 	}
-	.moja_wiadomosc{
+	.wiadomosc_znajomego .dymek {
+		border: 2px solid #dedede;
+		border-radius: 5px;
+		background-color: #f1f1f1;
+	}
+	.wiadomosc_moja {
 		justify-content: flex-end;
 	}
-	.moj_dymek{
+	.wiadomosc_moja .dymek {
 		border: 2px solid #dedede;
 		border-radius: 5px;
 		background-color: grey;
+		order: 1;
+	}
+	.wiadomosc_moja .avatar {
+		order: 2;
 	}
 
 	.btn_lewy{
@@ -353,8 +377,8 @@
 				 <div class = "czat">
 					 <div class="scrollbox">
 						 <div class = "wiadomosc_znajomego">
-							 <div class = "avatar_znajomego">
-								 <img src="firstletter.png" alt = "Avatar" class = "avatar">
+							 <div class = "avatar">
+								 <span>M</span>
 							 </div>
 							 <div class = "dymek">
 								 <div class = "dymek_znajomego">
@@ -362,14 +386,14 @@
 								 </div>
 							 </div>
 						 </div>
-						 <div class = "moja_wiadomosc">
+						 <div class = "wiadomosc_moja">
+							 <div class = "avatar">
+								 <span>J</span>
+							 </div>
 							 <div class = "dymek">
 								 <div class = "moj_dymek">
 									 <p> Hej! Wszystko dobrze. Strasznie fajny ten czat! </p>
 								 </div>
-							 </div>
-							 <div class = moj_avatar">
-								 <img src = "avatar.png" alt = "Avatar" class = "avatar">
 							 </div>
 						 </div>
 						 <div class="anchor"></div>
@@ -401,9 +425,6 @@
 		 </div>
 	 </div>
 
-	 <!-- Optional JavaScript -->
-	 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	 <script>
 // Edycja profilu
 var modal_edycja = document.getElementById("Edycja");
