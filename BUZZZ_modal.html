@@ -408,7 +408,7 @@
 						 </div>
 					 </div>
 					 <div class = "wpisywanie_wiadomosci">
-						 <input type = "text" placeholder = "Napisz wiadomosc...">
+						 <input id="message_input" type = "text" placeholder = "Napisz wiadomosc...">
 					 </div>
 					 <div class = "ikony_wiadomosci">
 					 	<div class = "wyslij">
@@ -494,6 +494,9 @@ window.onclick = function(event) {
 		];
 
 		function wiadomosc(czy_wychodzaca, inicjal, tresc) {
+			let scroller = document.querySelector('.czat .scrollbox');
+			let anchor = document.querySelector('.czat .scrollbox .anchor');
+
 			let klasa = czy_wychodzaca ? 'wiadomosc_moja' : 'wiadomosc_znajomego';
 			let div = document.createElement('div');
 			div.innerHTML = `<div class = "${klasa}">
@@ -506,23 +509,33 @@ window.onclick = function(event) {
 												</div>
 										</div>
 								</div>`;
-			return div.firstChild;
+			scroller.insertBefore(div.firstChild, anchor);
 		}
-
-		let scroller = document.querySelector('.czat .scrollbox');
-		let anchor = document.querySelector('.czat .scrollbox .anchor');
 
 		function dodaj_wiadomosc() {
 			let [czy_moja, inicjal, tresc] = messages[0];
-			let msg = wiadomosc(czy_moja, inicjal, tresc);
+			wiadomosc(czy_moja, inicjal, tresc);
 			messages.shift();
-			scroller.insertBefore(msg, anchor);
 			if (messages.length) {
 				setTimeout(dodaj_wiadomosc, 1000);
 			}
 		}
 
 		setTimeout(dodaj_wiadomosc, 1000);
+
+		document.querySelector('.wyslij .btn_lewy').addEventListener('click', event => {
+			let input = document.getElementById('message_input');
+			if (input.value) {
+				wiadomosc(1, 'J', input.value);
+			}
+			input.value = '';
+		});
+		document.getElementById('message_input').addEventListener('keydown', event => {
+			if (event.code == 'Enter') {
+				document.querySelector('.wyslij .btn_lewy').click();
+			}
+		});
+
 	</script>
 
 	</body>
