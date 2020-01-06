@@ -64,12 +64,21 @@
 	.naglowek{
 		flex-direction: row;
 		justify-content: space-between;
+		margin-bottom: 1.25em;
 	}
 
 	.user{
-		width: 30px;
-		height: 30px;
+		--avatar-size: 3em;
+		width: var(--avatar-size);
+		height: var(--avatar-size);
+		position: relative;
+	}
+	.user .avatar {
+		position: absolute;
+		top: 0.75em;
+		margin: 0 auto;
 		background-color: black;
+		color: var(--zolty);
 	}
 
 	.wyszukiwarka{
@@ -284,8 +293,10 @@
 						 <i class="material-icons">&#xe8b8;</i>
 					 </button>
 				 </div>
-				 <div class = "user">
-
+				 <div class="user">
+					 <div class="avatar">
+						 <span>Ja</span>
+					 </div>
 				 </div>
 				 <div class = "ikony_uzytkownika">
 					 <i class="material-icons">&#xe879;</i>
