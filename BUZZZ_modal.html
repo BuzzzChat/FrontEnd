@@ -115,15 +115,15 @@
 		flex-grow: 7;
 	}
 	::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-	  color: grey;
-	  opacity: 1; /* Firefox */
+		color: grey;
+		opacity: 1; /* Firefox */
 	}
 
 	.wpisywanie{
-		
+
 	}
 	.wpisywanie_wiadomosci input{
-		margin: 10px;		
+		margin: 10px;
 		width: 100%;
 		height: 60%;
 	}
@@ -143,7 +143,7 @@
 		flex-grow: 1;
 	}
 	.ikony_uzytkownika{
-		
+
 	}
 
 
@@ -286,141 +286,141 @@
 
  <!-- BODY -->
  <body>
-	 <div class = "split">
-		 <!-- Lewa podstrona-znajomi, wyszukiwarka, ustawienia profilu i wylogowanie -->
-		 <div class = "lewy">
-			 <div class = "naglowek">
-				 <div class = "ikony_uzytkownika">
-					 <!-- Edycja profilu -->
-					 <button id = "btn_edycja" class = "btn_lewy">
-						 <i class="material-icons">&#xe8b8;</i>
-					 </button>
-				 </div>
-				 <div class="user">
-					 <div class="avatar">
-						 <span>Ja</span>
-					 </div>
-				 </div>
-				 <div class = "ikony_uzytkownika">
-					 <i class="material-icons">&#xe879;</i>
-				 </div>
-			 </div>
-			 <!-- Wyszukiwarka -->
-			 <div class = "wyszukiwarka">
-				 <div class = "wpisywanie">
-					 <input type = "text" placeholder="Szukaj...">
-				 </div>
-				 <div class = "przycisk">
-					 <button class = "btn_lewy"><i class="material-icons">search</i></button>
-				 </div>
-			 </div>
-			 <!-- Znajomi -->
-			 <div class = "listy">
-				 <div class = "znajomi">
-					 <a> Znajomi </a>
-				 </div>
-				 <!-- Czat grupowy -->
-				 <div class = "czat_grupowy">
-					 <div class = "Grupowy_czat">
-						 <a> Czat grupowy </a>
-						 <a><i class="material-icons icon-text">add</i></a>
-					 </div>
-				 </div>
-				 <!-- Zaproszenia -->
-				 <div class = "Zaproszenia">
-					 <a> Zaproszenia do znajomych </a>
-				 </div>
-			 </div>
-		 </div>
-		 <!-- Ekran rozmowy -->
-		 <div class = "prawy">
-			 <!-- MODALE -->
-			 <!-- Edycja profilu modal-->
-			 <div id="Edycja" class="modal">
-				 <div class="modal-content">
-					 <span class="close_edycja">&times;</span>
-					 <p>Edycja profilu</p>
-				 </div>
-			 </div>
-			 <div id="Zmiana" class="modal">
-				 <div class="modal-content">
-					 <span class="close_zmiana">&times;</span>
-					 <p>Zmiana nazwy</p>
-				 </div>
-			 </div>
-			 <div id="Blokowanie" class="modal">
-				 <div class="modal-content">
-					 <span class="close_blok">&times;</span>
-					 <p>Czy na pewno chcesz zablokować tego użytkownika?</p>
-				 </div>
-			 </div>
-			 <div id="Usuwanie" class="modal">
-				 <div class="modal-content">
-					 <span class="close_usuw">&times;</span>
-					 <p>Czy na pewno chcesz usunąć tego użytkownika?</p>
-				 </div>
-			 </div>
-			 <!-- KONIEC MODALI -->
-			 <div class = "split2">
-				 <!-- Naglowek znajomego -->
-				 <div class = "naglowek_rozmowy">
-					 <div class = "nazwa_znajomego">
-						 <a> Nazwa znajomego</a>
-					 </div>
-					 <div class = ikony_znajomego">
-						 <div class = "Zmiana">
-							 <button id = "btn_zmiana" class = "btn_prawy">
-								 <i class="material-icons">edit</i>
-							 </button>
-						 </div>
-						 <!-- Blokowanie -->
-						 <div class = "blokowanie">
-							 <button id = "btn_blok" class = "btn_prawy">
-								 <i class="material-icons">block</i>
-							 </button>
-						 </div>
-						 <!-- Usuwanie -->
-						 <div class = "Usuwanie">
-							 <button id = "btn_usuw" class = "btn_prawy">
-								 <i class="material-icons">delete</i>
-							 </button>
-						 </div>
-					 </div>
-				 </div>
-				 <!-- Rozmowa -->
-				 <div class = "czat">
-					 <div class="scrollbox">
-						 <!-- przeniesione do JS -->
-						 <div class="anchor"></div>
-					 </div>
-				 </div>
-				 <!-- Pisanie wiadomosci, wysylanie plikow, zdjec itp -->
-				 <div class = "wiadomosc">
-					 <div class = "ikony_wiadomosci">
-						 <div class = "plik">
-							 <i class="material-icons">insert_drive_file</i>
-						 </div>
-						 <div class = "zdjecie">
-							 <i class="material-icons">add_photo_alternate</i>
-						 </div>
-						 <div class = "emoji">
-							 <i class="material-icons">insert_emoticon</i>
-						 </div>
-					 </div>
-					 <div class = "wpisywanie_wiadomosci">
-						 <input id="message_input" type = "text" placeholder = "Napisz wiadomosc...">
-					 </div>
-					 <div class = "ikony_wiadomosci">
-					 	<div class = "wyslij">
-						 <button class = "btn_lewy"><i class="material-icons">send</i></button>
-					 	</div>
+	<div class = "split">
+		<!-- Lewa podstrona-znajomi, wyszukiwarka, ustawienia profilu i wylogowanie -->
+		<div class = "lewy">
+			<div class = "naglowek">
+				<div class = "ikony_uzytkownika">
+					<!-- Edycja profilu -->
+					<button id = "btn_edycja" class = "btn_lewy">
+						<i class="material-icons">&#xe8b8;</i>
+					</button>
+				</div>
+				<div class="user">
+					<div class="avatar">
+						<span>Ja</span>
 					</div>
-				 </div>
-			 </div>
-		 </div>
-	 </div>
+				</div>
+				<div class = "ikony_uzytkownika">
+					<i class="material-icons">&#xe879;</i>
+				</div>
+			</div>
+			<!-- Wyszukiwarka -->
+			<div class = "wyszukiwarka">
+				<div class = "wpisywanie">
+					<input type = "text" placeholder="Szukaj...">
+				</div>
+				<div class = "przycisk">
+					<button class = "btn_lewy"><i class="material-icons">search</i></button>
+				</div>
+			</div>
+			<!-- Znajomi -->
+			<div class = "listy">
+				<div class = "znajomi">
+					<a> Znajomi </a>
+				</div>
+				<!-- Czat grupowy -->
+				<div class = "czat_grupowy">
+					<div class = "Grupowy_czat">
+						<a> Czat grupowy </a>
+						<a><i class="material-icons icon-text">add</i></a>
+					</div>
+				</div>
+				<!-- Zaproszenia -->
+				<div class = "Zaproszenia">
+					<a> Zaproszenia do znajomych </a>
+				</div>
+			</div>
+		</div>
+		<!-- Ekran rozmowy -->
+		<div class = "prawy">
+			<!-- MODALE -->
+			<!-- Edycja profilu modal-->
+			<div id="Edycja" class="modal">
+				<div class="modal-content">
+					<span class="close_edycja">&times;</span>
+					<p>Edycja profilu</p>
+				</div>
+			</div>
+			<div id="Zmiana" class="modal">
+				<div class="modal-content">
+					<span class="close_zmiana">&times;</span>
+					<p>Zmiana nazwy</p>
+				</div>
+			</div>
+			<div id="Blokowanie" class="modal">
+				<div class="modal-content">
+					<span class="close_blok">&times;</span>
+					<p>Czy na pewno chcesz zablokować tego użytkownika?</p>
+				</div>
+			</div>
+			<div id="Usuwanie" class="modal">
+				<div class="modal-content">
+					<span class="close_usuw">&times;</span>
+					<p>Czy na pewno chcesz usunąć tego użytkownika?</p>
+				</div>
+			</div>
+			<!-- KONIEC MODALI -->
+			<div class = "split2">
+				<!-- Naglowek znajomego -->
+				<div class = "naglowek_rozmowy">
+					<div class = "nazwa_znajomego">
+						<a> Nazwa znajomego</a>
+					</div>
+					<div class = ikony_znajomego">
+						<div class = "Zmiana">
+							<button id = "btn_zmiana" class = "btn_prawy">
+								<i class="material-icons">edit</i>
+							</button>
+						</div>
+						<!-- Blokowanie -->
+						<div class = "blokowanie">
+							<button id = "btn_blok" class = "btn_prawy">
+								<i class="material-icons">block</i>
+							</button>
+						</div>
+						<!-- Usuwanie -->
+						<div class = "Usuwanie">
+							<button id = "btn_usuw" class = "btn_prawy">
+								<i class="material-icons">delete</i>
+							</button>
+						</div>
+					</div>
+				</div>
+				<!-- Rozmowa -->
+				<div class = "czat">
+					<div class="scrollbox">
+						<!-- przeniesione do JS -->
+						<div class="anchor"></div>
+					</div>
+				</div>
+				<!-- Pisanie wiadomosci, wysylanie plikow, zdjec itp -->
+				<div class = "wiadomosc">
+					<div class = "ikony_wiadomosci">
+						<div class = "plik">
+							<i class="material-icons">insert_drive_file</i>
+						</div>
+						<div class = "zdjecie">
+							<i class="material-icons">add_photo_alternate</i>
+						</div>
+						<div class = "emoji">
+							<i class="material-icons">insert_emoticon</i>
+						</div>
+					</div>
+					<div class = "wpisywanie_wiadomosci">
+						<input id="message_input" type = "text" placeholder = "Napisz wiadomosc...">
+					</div>
+					<div class = "ikony_wiadomosci">
+						<div class = "wyslij">
+						<button class = "btn_lewy"><i class="material-icons">send</i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-	 <script>
+	<script>
 // Edycja profilu
 var modal_edycja = document.getElementById("Edycja");
 var btn = document.getElementById("btn_edycja");
@@ -484,7 +484,7 @@ window.onclick = function(event) {
     modal_usuw.style.display = "none";
   }
 }
-	 </script>
+	</script>
 	<script>
 		let messages = [
 			[0, 'M', 'Cześć! Co tam u Ciebie słychać?'],
