@@ -3,7 +3,8 @@
 	--yellow: #f5ee4e;
 	--grey: #36342A;
 	--black: #000000;
-	--white: #f1f1f1;
+	--white: #eee;
+	--white2: #ccc;
 
 	--avatar-size: 1.5em;
 }
@@ -13,7 +14,8 @@ body{
 	font-size: 150%;
 	padding: 0;
 	margin: 0;
-
+	background-color: var(--black);
+	color: var(--white);
 }
 div{
 	display: flex;
@@ -24,6 +26,51 @@ div{
 	height: 100vh;
 }
 
+.split_start{
+	flex-direction: row;
+	justify-content: space-between;
+}
+.start{
+	margin: 4em;
+}
+ .rejestracja .content div{
+		margin-bottom: 0.5em;
+	}
+
+	.rejestracja{
+		margin: 4em;
+	}
+
+.rejestracja input {
+	margin: 0 auto;
+}
+
+.rejestracja input[type="checkbox"] {
+	margin: 0 0.5em;
+}
+
+.rejestracja .content img{
+	margin: 0 auto;
+}
+.content{
+	align-content: center;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	display: block;
+}
+
+.lewy_start{
+	flex-grow: 2;
+	flex-direction: column;
+	margin: 20px;
+}
+
+.prawy_start{
+	width: 20em;
+	flex-direction: column;
+	margin: 10px;
+}
 .lewy{
 	width: 12em;
 	background-color: var(--black);
@@ -34,7 +81,7 @@ div{
 
 .prawy{
 	flex-grow: 2;
-	background-color: black;
+	background-color: var(--black);
 }
 
 .listy{
@@ -79,7 +126,6 @@ div{
 
 h1{
 	width: 100%;
-	color: white;
 }
 
 .split2{
@@ -91,6 +137,7 @@ h1{
 	flex-direction: row;
 	height: 3em;
 	background-color: var(--yellow);
+	color: var(--black);
 	width: 100%;
 }
 
@@ -143,6 +190,7 @@ input{
 
 .avatar {
 	background-color: var(--yellow);
+	color: var(--black);
 	border-radius: 50%;
 	width: var(--avatar-size);
 	height: var(--avatar-size);
@@ -200,17 +248,19 @@ input{
 	justify-content: flex-start;
 }
 .wiadomosc_znajomego .dymek {
-	border: 2px solid #dedede;
+	border: 2px solid var(--white);
 	border-radius: 5px;
-	background-color: #f1f1f1;
+	background-color: var(--white);
+	color: var(--black);
 }
 .wiadomosc_moja {
 	justify-content: flex-end;
 }
 .wiadomosc_moja .dymek {
-	border: 2px solid #dedede;
+	border: 2px solid var(--white2);
 	border-radius: 5px;
-	background-color: grey;
+	background-color: var(--white2);
+	color: var(--black);
 	order: 1;
 }
 .wiadomosc_moja .avatar {
@@ -231,7 +281,9 @@ input{
 	cursor: pointer;
 	color: black;
 }
-
+ a{
+	font-size: 1em;
+	}
 .Grupowy_czat{
 	justify-content: space-between;
 }
@@ -253,16 +305,17 @@ input{
 /* Modal Content */
 .modal-content {
 	background-color: #fefefe;
+	color: var(--black);
 	margin: auto;
 	padding: 20px;
-	border: 1px solid #888;
+	border: 1px solid var(--yellow);
 	width: 80%;
 	position: relative;
 }
 
 /* The Close Button */
 .close {
-	color: #aaaaaa;
+	color: var(--black);
 	font-size: 28px;
 	font-weight: bold;
 	position: absolute;
@@ -272,7 +325,7 @@ input{
 
 .close:hover,
 .close:focus {
-	color: #000;
+	color: var(--black);
 	text-decoration: none;
 	cursor: pointer;
 }
