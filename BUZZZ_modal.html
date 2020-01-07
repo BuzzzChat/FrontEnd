@@ -66,25 +66,25 @@
 			<!-- Edycja profilu modal-->
 			<div id="Edycja" class="modal">
 				<div class="modal-content">
-					<span class="close_edycja">&times;</span>
+					<span class="close">&times;</span>
 					<p>Edycja profilu</p>
 				</div>
 			</div>
 			<div id="Zmiana" class="modal">
 				<div class="modal-content">
-					<span class="close_zmiana">&times;</span>
+					<span class="close">&times;</span>
 					<p>Zmiana nazwy</p>
 				</div>
 			</div>
 			<div id="Blokowanie" class="modal">
 				<div class="modal-content">
-					<span class="close_blok">&times;</span>
+					<span class="close">&times;</span>
 					<p>Czy na pewno chcesz zablokować tego użytkownika?</p>
 				</div>
 			</div>
 			<div id="Usuwanie" class="modal">
 				<div class="modal-content">
-					<span class="close_usuw">&times;</span>
+					<span class="close">&times;</span>
 					<p>Czy na pewno chcesz usunąć tego użytkownika?</p>
 				</div>
 			</div>
@@ -151,9 +151,9 @@
 	<script>
 // Edycja profilu
 var modal_edycja = document.getElementById("Edycja");
-var btn = document.getElementById("btn_edycja");
-var span_edycja = document.getElementsByClassName("close_edycja")[0];
-btn.onclick = function() {
+var btn_edycja = document.getElementById("btn_edycja");
+let span_edycja = document.querySelector("#Edycja .close");
+btn_edycja.onclick = function() {
   modal_edycja.style.display = "block";
 }
 span_edycja.onclick = function() {
@@ -168,7 +168,7 @@ window.onclick = function(event) {
 // Zmiana nazwy
 var modal_zmiana = document.getElementById("Zmiana");
 var btn_zmiana = document.getElementById("btn_zmiana");
-var span_zmiana = document.getElementsByClassName("close_zmiana")[0];
+let span_zmiana = document.querySelector("#Zmiana .close");
 btn_zmiana.onclick = function() {
   modal_zmiana.style.display = "block";
 }
@@ -184,7 +184,7 @@ window.onclick = function(event) {
 //blokowanie
 var modal_blok = document.getElementById("Blokowanie");
 var btn_blok = document.getElementById("btn_blok");
-var span_blok = document.getElementsByClassName("close_blok")[0];
+let span_blok = document.querySelector("#Blokowanie .close");
 btn_blok.onclick = function() {
   modal_blok.style.display = "block";
 }
@@ -200,7 +200,7 @@ window.onclick = function(event) {
 //Usuwanie
 var modal_usuw = document.getElementById("Usuwanie");
 var btn_usuw = document.getElementById("btn_usuw");
-var span_usuw = document.getElementsByClassName("close_usuw")[0];
+let span_usuw = document.querySelector("#Usuwanie .close");
 btn_usuw.onclick = function() {
   modal_usuw.style.display = "block";
 }
