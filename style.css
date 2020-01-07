@@ -1,8 +1,10 @@
 :root{
-	--zolty:  #FADE2a;
+	--yellow: #FADE2a;
+	--yellow: #f5ee4e;
 	--grey: #36342A;
 	--black: #000000;
 	--white: #f1f1f1;
+
 	--avatar-size: 1.5em;
 }
 
@@ -23,10 +25,10 @@ div{
 }
 
 .lewy{
-	width: 23%;
+	width: 12em;
 	background-color: var(--black);
 	color: var(--white);
-	border-right: 0.125em solid var(--zolty);
+	border-right: 0.125em solid var(--grey);
 	flex-direction: column;
 }
 
@@ -88,7 +90,7 @@ h1{
 .naglowek_rozmowy{
 	flex-direction: row;
 	height: 3em;
-	background-color: var(--zolty);
+	background-color: var(--yellow);
 	width: 100%;
 }
 
@@ -118,7 +120,7 @@ h1{
 
 input{
 	background-color: var(--black);
-	border-color: var(--zolty);
+	border-color: var(--yellow);
 	color: var(--white);
 }
 .ikony_wiadomosci{
@@ -140,7 +142,7 @@ input{
 }
 
 .avatar {
-	background-color: var(--zolty);
+	background-color: var(--yellow);
 	border-radius: 50%;
 	width: var(--avatar-size);
 	height: var(--avatar-size);
@@ -224,7 +226,7 @@ input{
 }
 
 .btn_prawy{
-	background-color: var(--zolty);
+	background-color: var(--yellow);
 	border: none;
 	cursor: pointer;
 	color: black;
