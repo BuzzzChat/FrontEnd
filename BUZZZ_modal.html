@@ -107,7 +107,8 @@
 
 	.wiadomosc{
 		height:3em;
-		background-color: #36342a;
+		background-color: var(--grey);
+		color: var(--black);
 		flex-direction: row;
 		justify-content: space-between;
 	}
@@ -131,7 +132,7 @@
 	input{
 		background-color: var(--black);
 		border-color: var(--zolty);
-
+		color: var(--white);
 	}
 	.ikony_wiadomosci{
 	}
@@ -199,6 +200,7 @@
 		overflow-anchor: auto;
 		/* anchor nodes are required to have non-zero area */
 		height: 1px;
+		flex-shrink: 0;
 	}
 
 	.wiadomosc_znajomego, .wiadomosc_moja {
@@ -531,7 +533,7 @@ window.onclick = function(event) {
 			input.value = '';
 		});
 		document.getElementById('message_input').addEventListener('keydown', event => {
-			if (event.code == 'Enter') {
+			if (event.code == 'Enter' || event.code == 'NumpadEnter') {
 				document.querySelector('.wyslij .btn_lewy').click();
 			}
 		});
