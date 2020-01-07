@@ -527,10 +527,11 @@ window.onclick = function(event) {
 
 		document.querySelector('.wyslij .btn_lewy').addEventListener('click', event => {
 			let input = document.getElementById('message_input');
-			if (input.value) {
-				setTimeout(wiadomosc, Math.random() * 1000 + 200, 1, 'J', input.value);
+			if (msg = input.value.trim()) {
+				setTimeout(wiadomosc, Math.random() * 1000 + 200, 1, 'J', msg);
+				input.value = '';
+				document.querySelector('.czat .scrollbox .anchor').scrollIntoView(true);
 			}
-			input.value = '';
 		});
 		document.getElementById('message_input').addEventListener('keydown', event => {
 			if (event.code == 'Enter' || event.code == 'NumpadEnter') {
