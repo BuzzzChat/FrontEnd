@@ -19,9 +19,8 @@
 		<div class = "lewy">
 			<div class = "naglowek">
 				<div class = "ikony_uzytkownika">
-					<!-- Edycja profilu -->
-					<button id = "btn_edycja" class = "btn_lewy">
-						<i class="material-icons">&#xe8b8;</i>
+					<button id="btn_wyloguj" class = "btn_lewy">
+						<i class="material-icons">&#xe879;</i>
 					</button>
 				</div>
 				<div class="user">
@@ -30,7 +29,10 @@
 					</div>
 				</div>
 				<div class = "ikony_uzytkownika">
-					<i class="material-icons">&#xe879;</i>
+					<!-- Edycja profilu -->
+					<button id = "btn_edycja" class = "btn_lewy">
+						<i class="material-icons">&#xe8b8;</i>
+					</button>
 				</div>
 			</div>
 			<!-- Wyszukiwarka -->
@@ -149,6 +151,10 @@
 	</div>
 
 	<script>
+// wylogowanie
+document.getElementById("btn_wyloguj").addEventListener('click', event => {
+	window.location = 'ekranStart.html'
+});
 // Edycja profilu
 var modal_edycja = document.getElementById("Edycja");
 var btn_edycja = document.getElementById("btn_edycja");
