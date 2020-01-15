@@ -276,6 +276,10 @@ input{
 	order: 2;
 }
 
+.button{
+	cursor:pointer;
+}
+
 .btn_lewy{
 	background-color: inherit;
 	color: inherit;
