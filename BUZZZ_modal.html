@@ -19,9 +19,8 @@
 		<div class = "lewy">
 			<div class = "naglowek">
 				<div class = "ikony_uzytkownika">
-					<!-- Edycja profilu -->
-					<button id = "btn_edycja" class = "btn_lewy">
-						<i class="material-icons">&#xe8b8;</i>
+					<button id="btn_wyloguj" class = "btn_lewy">
+						<i class="material-icons">&#xe879;</i>
 					</button>
 				</div>
 				<div class="user">
@@ -30,7 +29,10 @@
 					</div>
 				</div>
 				<div class = "ikony_uzytkownika">
-					<i class="material-icons">&#xe879;</i>
+					<!-- Edycja profilu -->
+					<button id = "btn_edycja" class = "btn_lewy">
+						<i class="material-icons">&#xe8b8;</i>
+					</button>
 				</div>
 			</div>
 			<!-- Wyszukiwarka -->
@@ -51,7 +53,7 @@
 				<div class = "czat_grupowy">
 					<div class = "Grupowy_czat">
 						<a> Czat grupowy </a>
-						<a><i class="material-icons icon-text">add</i></a>
+						<a> <i class="material-icons icon-text button">add</i></a>
 					</div>
 				</div>
 				<!-- Zaproszenia -->
@@ -79,21 +81,45 @@
 			<div id="Blokowanie" class="modal">
 				<div class="modal-content">
 					<span class="close">&times;</span>
-					<p>Czy na pewno chcesz zablokować tego użytkownika?</p>
+						<div class = "modal-srodek">							
+							<div>
+								<p>Czy na pewno chcesz zablokować tego użytkownika?</p>
+							</div>
+							<div class = "przyciski-modal">
+								<div>
+									<button>TAK </button>
+								</div>
+								<div>
+									<button>NIE</button>
+								</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div id="Usuwanie" class="modal">
 				<div class="modal-content">
 					<span class="close">&times;</span>
-					<p>Czy na pewno chcesz usunąć tego użytkownika?</p>
+							<div class = "modal-srodek">							
+							<div>
+								<p>Czy na pewno chcesz usunąć tego użytkownika?</p>
+							</div>
+							<div class = "przyciski-modal">
+								<div>
+									<button>TAK </button>
+								</div>
+								<div>
+									<button>NIE</button>
+								</div>
+						</div>
+					</div>
+					</div>
 				</div>
-			</div>
 			<!-- KONIEC MODALI -->
 			<div class = "split2">
 				<!-- Naglowek znajomego -->
 				<div class = "naglowek_rozmowy">
 					<div class = "nazwa_znajomego">
-						<a> Nazwa znajomego</a>
+						<a> Mój znajomy</a>
 					</div>
 					<div class = ikony_znajomego">
 						<div class = "Zmiana">
@@ -126,13 +152,13 @@
 				<div class = "wiadomosc">
 					<div class = "ikony_wiadomosci">
 						<div class = "plik">
-							<i class="material-icons">insert_drive_file</i>
+							<button class = "btn_lewy"><i class="material-icons">insert_drive_file</i></button>
 						</div>
 						<div class = "zdjecie">
-							<i class="material-icons">add_photo_alternate</i>
+							<button class = "btn_lewy"><i class="material-icons">add_photo_alternate</i></button>
 						</div>
 						<div class = "emoji">
-							<i class="material-icons">insert_emoticon</i>
+							<button class = "btn_lewy"><i class="material-icons">insert_emoticon</i></button>
 						</div>
 					</div>
 					<div class = "wpisywanie_wiadomosci">
@@ -149,6 +175,10 @@
 	</div>
 
 	<script>
+// wylogowanie
+document.getElementById("btn_wyloguj").addEventListener('click', event => {
+	window.location = 'ekranStart.html'
+});
 // Edycja profilu
 var modal_edycja = document.getElementById("Edycja");
 var btn_edycja = document.getElementById("btn_edycja");
@@ -217,8 +247,10 @@ window.onclick = function(event) {
 		let messages = [
 			[0, 'M', 'Cześć! Co tam u Ciebie słychać?'],
 			[1, 'J', 'Hej! Wszystko dobrze. Strasznie fajny ten czat!'],
-			[0, 'M', 'Wiadomość 1'],
-			[1, 'J', 'Wiadomość 2']
+			[0, 'M', 'Nooo. Taki nieśledzący.'],
+			[1, 'J', 'I jaki ma przyjazny interfejs!'],
+			[0, 'M', 'Mi też się bardzo podoba.'],
+			[1, 'J', 'uśmiechnij się do screenshota']
 		];
 
 		function wiadomosc(czy_wychodzaca, inicjal, tresc) {

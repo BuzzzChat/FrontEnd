@@ -1,10 +1,12 @@
 :root{
 	--yellow: #FADE2a;
 	--yellow: #f5ee4e;
-	--grey: #36342A;
+	--darkgrey: #2c2c2c;
+	--lightgrey: #3d3d3d;
 	--black: #000000;
-	--white: #f1f1f1;
-
+	--white: #eee;
+	--white2: #ccc;
+	--jakis: rgba(0,0,0,0.4);
 	--avatar-size: 1.5em;
 }
 
@@ -13,7 +15,8 @@ body{
 	font-size: 150%;
 	padding: 0;
 	margin: 0;
-
+	background-color: var(--black);
+	color: var(--white);
 }
 div{
 	display: flex;
@@ -24,22 +27,69 @@ div{
 	height: 100vh;
 }
 
+.split_start{
+	flex-direction: row;
+	justify-content: space-between;
+}
+.start{
+	margin: 4em;
+}
+ .rejestracja .content div{
+		margin-bottom: 0.5em;
+	}
+
+	.rejestracja{
+		margin: 4em;
+	}
+
+.rejestracja input {
+	margin: 0 auto;
+}
+
+.rejestracja input[type="checkbox"] {
+	margin: 0 0.5em;
+}
+
+.rejestracja .content img{
+	margin: 0 auto;
+}
+.content{
+	align-content: center;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	display: block;
+}
+
+.lewy_start{
+	flex-grow: 2;
+	flex-direction: column;
+	margin: 20px;
+}
+
+.prawy_start{
+	width: 20em;
+	flex-direction: column;
+	margin: 10px;
+}
 .lewy{
 	width: 12em;
-	background-color: var(--black);
+	background-color: var(--lightgrey);
 	color: var(--white);
-	border-right: 0.125em solid var(--grey);
+	border-right: 0.125em solid var(--darkgrey);
 	flex-direction: column;
+
 }
 
 .prawy{
 	flex-grow: 2;
-	background-color: black;
+	background-color: var(--black);
 }
 
 .listy{
 	flex-grow: 1;
 	flex-direction: column;
+	margin: 0.5em 0.5em;
 }
 
 .material-icons{
@@ -56,10 +106,14 @@ div{
 .naglowek{
 	flex-direction: row;
 	justify-content: space-between;
-	margin-bottom: 1.25em;
-	background-color: var(--grey);
+	margin-bottom: 2em;
+	line-height:1;
+	background-color: var(--darkgrey);
 }
 
+.naglowek .material-icons{
+	padding: 0 10px;
+}
 .user{
 	--avatar-size: 3em;
 	width: var(--avatar-size);
@@ -68,18 +122,18 @@ div{
 }
 .user .avatar {
 	position: absolute;
-	top: 0.75em;
+	top: 1.5em;
 	margin: 0 auto;
 	color: var(--black);
 }
 
 .wyszukiwarka{
 	flex-direction: row;
+	margin: 0.5em 0.5em;
 }
 
 h1{
 	width: 100%;
-	color: white;
 }
 
 .split2{
@@ -91,12 +145,13 @@ h1{
 	flex-direction: row;
 	height: 3em;
 	background-color: var(--yellow);
+	color: var(--black);
 	width: 100%;
 }
 
 .wiadomosc{
 	height:3em;
-	background-color: var(--grey);
+	background-color: var(--black);
 	color: var(--black);
 	flex-direction: row;
 	justify-content: space-between;
@@ -105,7 +160,7 @@ h1{
 	flex-grow: 7;
 }
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-	color: grey;
+	color: darkgrey;
 	opacity: 1; /* Firefox */
 }
 
@@ -119,11 +174,12 @@ h1{
 }
 
 input{
-	background-color: var(--black);
+	background-color: var(--darkgrey);
 	border-color: var(--yellow);
 	color: var(--white);
 }
 .ikony_wiadomosci{
+	color: var(--yellow);
 }
 .nazwa_znajomego{
 	flex-grow: 6;
@@ -143,6 +199,7 @@ input{
 
 .avatar {
 	background-color: var(--yellow);
+	color: var(--black);
 	border-radius: 50%;
 	width: var(--avatar-size);
 	height: var(--avatar-size);
@@ -200,21 +257,27 @@ input{
 	justify-content: flex-start;
 }
 .wiadomosc_znajomego .dymek {
-	border: 2px solid #dedede;
+	border: 2px solid var(--white);
 	border-radius: 5px;
-	background-color: #f1f1f1;
+	background-color: var(--white);
+	color: var(--black);
 }
 .wiadomosc_moja {
 	justify-content: flex-end;
 }
 .wiadomosc_moja .dymek {
-	border: 2px solid #dedede;
+	border: 2px solid var(--white2);
 	border-radius: 5px;
-	background-color: grey;
+	background-color: var(--white2);
+	color: var(--black);
 	order: 1;
 }
 .wiadomosc_moja .avatar {
 	order: 2;
+}
+
+.button{
+	cursor:pointer;
 }
 
 .btn_lewy{
@@ -231,7 +294,9 @@ input{
 	cursor: pointer;
 	color: black;
 }
-
+ a{
+	font-size: 1em;
+	}
 .Grupowy_czat{
 	justify-content: space-between;
 }
@@ -247,22 +312,33 @@ input{
 	height: 100%; /* Full height */
 	overflow: auto; /* Enable scroll if needed */
 	background-color: rgb(0,0,0); /* Fallback color */
-	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+	flex-direction: column;
 }
 
-/* Modal Content */
+/* Modal */
 .modal-content {
-	background-color: #fefefe;
+	background-color: var(--lightgrey);
+	color: var(--white);
 	margin: auto;
 	padding: 20px;
-	border: 1px solid #888;
-	width: 80%;
+	border: 1px solid var(--darkgrey);
+	width: max-content;
 	position: relative;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.modal-srodek {
+	width: max-content;
+	padding: 20px;
+	justify-content: space-around;
+	flex-direction: column;
 }
 
 /* The Close Button */
 .close {
-	color: #aaaaaa;
+	color: var(--white);
 	font-size: 28px;
 	font-weight: bold;
 	position: absolute;
@@ -272,7 +348,11 @@ input{
 
 .close:hover,
 .close:focus {
-	color: #000;
+	color: var(--black);
 	text-decoration: none;
 	cursor: pointer;
+}
+.przyciski-modal{
+	justify-content: space-evenly;
+	
 }
