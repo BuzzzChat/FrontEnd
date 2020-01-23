@@ -3,7 +3,7 @@
 	--yellow: #f5ee4e;
 	--darkgrey: #2c2c2c;
 	--lightgrey: #3d3d3d;
-	--black: #000000;
+	--black: #121212;
 	--white: #eee;
 	--white2: #ccc;
 	--jakis: rgba(0,0,0,0.4);
@@ -173,6 +173,18 @@ h1{
 	height: 60%;
 }
 
+.pole{
+	align-items: center;
+}
+
+.pole-lewe input{
+	margin: 10px;
+}
+
+.pole-prawe input{
+	margin: 10px;
+}
+
 input{
 	background-color: var(--darkgrey);
 	border-color: var(--yellow);
@@ -326,6 +338,21 @@ input{
 	width: max-content;
 	position: relative;
 	justify-content: center;
+	flex-direction: column;
+}
+
+
+.pole {
+	margin: 20px;
+	flex-direction: row;
+}
+.pole-lewe {
+	margin: 10px;
+	flex-direction: column;
+}
+
+.pole-prawe {
+	margin: 10px;
 	flex-direction: column;
 }
 
