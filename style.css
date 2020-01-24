@@ -36,6 +36,7 @@ div{
 }
  .rejestracja .content div{
 		margin-bottom: 0.5em;
+		justify-content: center;
 	}
 
 	.rejestracja{
@@ -44,6 +45,8 @@ div{
 
 .rejestracja input {
 	margin: 0 auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 .rejestracja input[type="checkbox"] {
@@ -54,11 +57,16 @@ div{
 	margin: 0 auto;
 }
 .content{
+	font-size: 1em;
 	align-content: center;
 	flex-direction: column;
 	justify-content: center;
 	text-align: center;
 	display: block;
+}
+.content a{
+	font-size: 0.65em;
+	color: var(--white); 
 }
 
 .lewy_start{
@@ -66,7 +74,6 @@ div{
 	flex-direction: column;
 	margin: 20px;
 }
-
 .prawy_start{
 	width: 20em;
 	flex-direction: column;
@@ -190,16 +197,20 @@ input{
 	border-color: var(--yellow);
 	color: var(--white);
 }
+
 .ikony_wiadomosci{
 	color: var(--yellow);
 }
+
 .nazwa_znajomego{
 	flex-grow: 6;
 	padding: 10px;
 }
+
 .ikony_znajomego{
 	flex-grow: 1;
 }
+
 .ikony_uzytkownika{
 
 }
@@ -219,6 +230,7 @@ input{
 	vertical-align: middle;
 	text-align: center;
 }
+
 .avatar span {
 	font-size: calc(var(--avatar-size) * 0.75);
 	line-height: 1;
@@ -231,14 +243,17 @@ input{
 	padding: 0.25em;
 	min-height: var(--avatar-size);
 }
+
 .dymek p {
 	margin: 0 auto;
 }
+
 .czat{
 	height: 100%;
 	flex-direction: column;
 	overflow-y: scroll;
 }
+
 .czat .scrollbox {
 	width: 100%;
 	height: 100%;
@@ -246,13 +261,16 @@ input{
 	/* visually remove anchor */
 	margin-bottom: -1px;
 }
+
 .czat .scrollbox > :first-child {
 	margin-top: auto !important;
 }
+
 .czat .scrollbox * {
 	/* don't allow the children of the scrollable element to be selected as an anchor node */
 	overflow-anchor: none;
 }
+
 .czat .scrollbox .anchor {
 	/* allow the final child to be selected as an anchor node */
 	overflow-anchor: auto;
@@ -265,18 +283,22 @@ input{
 	margin-bottom: 0.5em;
 	align-items: flex-end;
 }
+
 .wiadomosc_znajomego{
 	justify-content: flex-start;
 }
+
 .wiadomosc_znajomego .dymek {
 	border: 2px solid var(--white);
 	border-radius: 5px;
 	background-color: var(--white);
 	color: var(--black);
 }
+
 .wiadomosc_moja {
 	justify-content: flex-end;
 }
+
 .wiadomosc_moja .dymek {
 	border: 2px solid var(--white2);
 	border-radius: 5px;
@@ -284,6 +306,7 @@ input{
 	color: var(--black);
 	order: 1;
 }
+
 .wiadomosc_moja .avatar {
 	order: 2;
 }
@@ -306,9 +329,11 @@ input{
 	cursor: pointer;
 	color: black;
 }
- a{
+
+a {
 	font-size: 1em;
 	}
+
 .Grupowy_czat{
 	justify-content: space-between;
 }
@@ -379,7 +404,31 @@ input{
 	text-decoration: none;
 	cursor: pointer;
 }
+
 .przyciski-modal{
 	justify-content: space-evenly;
 	
 }
+
+.hive {
+  display: inline-block;
+  position: relative;
+  line-height: 1.2em;
+  padding: 0 .5em;
+  background: orange;
+  margin: 2em;
+  /* just spacing */
+  position: relative;
+}
+
+hive:before {
+
+  right: 100%;
+  border-right-color: orange;
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: .6em solid transparent; /* half line-height */
+}
+
