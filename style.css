@@ -73,11 +73,22 @@ div{
 	flex-grow: 2;
 	flex-direction: column;
 	margin: 20px;
+	padding: 15px;
 }
 .prawy_start{
-	width: 20em;
+	width: 30em;
 	flex-direction: column;
 	margin: 10px;
+	align-items: center;
+}
+
+.tekst{
+	flex-direction: column;
+	text-align: justify;
+	margin: 0;
+}
+p{
+	margin:0;
 }
 .lewy{
 	width: 12em;
@@ -313,8 +324,11 @@ input{
 	order: 2;
 }
 
-.button{
+button{
+	margin-top:3px;
+	
 	cursor:pointer;
+	color: var(--black);
 }
 
 .btn_lewy{
@@ -334,6 +348,7 @@ input{
 
 a {
 	font-size: 1em;
+	width:max-content;
 	}
 
 .Grupowy_czat{
@@ -411,26 +426,25 @@ a {
 	justify-content: space-evenly;
 	
 }
-
 .hive {
-  display: inline-block;
+  border: 0;
   position: relative;
-  line-height: 1.2em;
-  padding: 0 .5em;
-  background: orange;
-  margin: 2em;
-  /* just spacing */
-  position: relative;
+
+  background: var(--yellow);
 }
-
-hive:before {
-
-  right: 100%;
-  border-right-color: orange;
+.hive:before,
+.hive:after {
   content: '';
   position: absolute;
   width: 0;
   height: 0;
   border: .6em solid transparent; /* half line-height */
 }
-
+.hive:before {
+  right: 100%;
+  border-right-color: var(--yellow);
+}
+.hive:after {
+  left: 100%;
+  border-left-color: var(--yellow);
+}
