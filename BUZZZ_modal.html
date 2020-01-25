@@ -296,6 +296,9 @@ window.onclick = function(event) {
 		}
 
 		setTimeout(dodaj_wiadomosc, 1000);
+		setTimeout(function() {
+			wiadomosc(0, 'M', 'Co ty do mnie piszesz?');
+		}, 20000);
 
 		document.querySelector('.wyslij .btn_lewy').addEventListener('click', event => {
 			let input = document.getElementById('message_input');
