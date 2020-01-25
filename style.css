@@ -21,6 +21,12 @@ body{
 div{
 	display: flex;
 }
+#app {
+	display: block;
+}
+.content {
+	width: 100%;
+}
 
 .split{
 	flex-direction: row;
