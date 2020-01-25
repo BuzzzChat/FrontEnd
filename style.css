@@ -286,6 +286,7 @@ input{
 
 .wiadomosc_znajomego{
 	justify-content: flex-start;
+	margin-right: calc(var(--avatar-size) + 2 * 10px + 2em);
 }
 
 .wiadomosc_znajomego .dymek {
@@ -297,6 +298,7 @@ input{
 
 .wiadomosc_moja {
 	justify-content: flex-end;
+	margin-left: calc(var(--avatar-size) + 2 * 10px + 2em);
 }
 
 .wiadomosc_moja .dymek {
