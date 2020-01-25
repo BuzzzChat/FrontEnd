@@ -4,8 +4,8 @@
 		<div class="content">
 			<form v-on:submit.prevent="register">
 				<h1> Rejestracja </h1>
-				<div>
-					<p v-if="errors.length">
+				<div v-if="errors.length">
+					<p>
 						<b>
 							Please correct the following error(s):
 						</b>
@@ -40,8 +40,8 @@
  
 <script>
 module.exports = {
-    data: function() {
-        return {
+	data: function() {
+		return {
 			status: '',
 			errors: [],
 			input: {
@@ -52,8 +52,8 @@ module.exports = {
 				age: false,
 				consent: false
 			}
-        }
-    },
+		}
+	},
 	methods: {
 		register: function(event) {
 			// TODO: send to server
