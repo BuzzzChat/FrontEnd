@@ -20,13 +20,17 @@
 				<router-link to="/register">
 					<input type="submit" value="Utwórz konto">
 				</router-link>
-		 </div>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+	module.exports = {
+		mounted: function() {
+			if (this.$root.authenticated) {
+				this.$router.replace({ name: "main" });
+			}
+		}
+	}
 </script>
-
-<style>
-</style>

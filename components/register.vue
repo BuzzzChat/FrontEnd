@@ -6,14 +6,11 @@
 				<h1> Rejestracja </h1>
 				<div v-if="errors.length">
 					<p>
-						<b>
-							Please correct the following error(s):
-						</b>
-						<ul>
-							<li v-for="error in errors">
-								{{ error }}
-							</li>
-						</ul>
+					<ul>
+						<li v-for="error in errors">
+							{{ error }}
+						</li>
+					</ul>
 					</p>
 				</div>
 				<div>
@@ -37,35 +34,39 @@
 		</div>
 	</div>
 </template>
- 
+
 <script>
-module.exports = {
-	data: function() {
-		return {
-			status: '',
-			errors: [],
-			input: {
-				username: '',
-				email: '',
-				password: '',
-				password2: '',
-				age: false,
-				consent: false
+	module.exports = {
+		data: function() {
+			return {
+				status: '',
+				errors: [],
+				input: {
+					username: '',
+					email: '',
+					password: '',
+					password2: '',
+					age: false,
+					consent: false
+				}
 			}
-		}
-	},
-	methods: {
-		register: function(event) {
-			// TODO: send to server
-			this.errors = [];
-			if (this.input.password != this.input.password2) {
-				this.errors.push('Wprowadzono 2 różne hasła')
-				return false
+		},
+		methods: {
+			register: function(event) {
+				// TODO: send to server
+				this.errors = [];
+				if (this.input.password != this.input.password2) {
+					this.errors.push('Wprowadzono 2 różne hasła')
+					return
+				}
+				this.$emit('authenticated', true)
+				this.$router.replace({ name: 'main' })
 			}
-			// this.$emit('authenticated', true)
-			// this.$router.replace({ name: 'start' })
-			return true
+		},
+		mounted: function() {
+			if (this.$root.authenticated) {
+				this.$router.replace({ name: "main" });
+			}
 		}
 	}
-}
 </script>

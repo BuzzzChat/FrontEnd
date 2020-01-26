@@ -1,7 +1,7 @@
 const router = new VueRouter({
 	routes: [
 		{
-			path: '/',
+			path: '/start',
 			name: 'start',
 			component: httpVueLoader('./components/start.vue')
 		},
@@ -12,12 +12,22 @@ const router = new VueRouter({
 		},
 		{
 			path: '/logout',
+			name: 'logout',
 			redirect: { name: 'start' }
 		},
 		{
 			path: '/register',
 			name: 'register',
 			component: httpVueLoader('./components/register.vue')
+		},
+		{
+			path: '/',
+			name: 'main',
+			component: httpVueLoader('./components/main.vue')
+		},
+		{
+			path: '*',
+			redirect: { name: 'start' }
 		}
 	]
 })
@@ -28,8 +38,8 @@ const app = new Vue({
 		return {
 			authenticated: false,
 			mockAccount: {
-				username: "user",
-				password: "user"
+				login: 'user',
+				password: 'user'
 			}
 		}
 	},

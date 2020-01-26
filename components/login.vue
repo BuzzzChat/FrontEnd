@@ -6,7 +6,7 @@
 				<img src="bee.png" width="300" height="300">
 			</div>
 			<h1>Logowanie</h1>
-			<form>
+			<form v-on:submit.prevent="login">
 				<div>
 					<input type="text" placeholder="Login" v-model="input.login">
 				</div>
@@ -30,34 +30,29 @@
 </template>
 
 <script>
-module.exports = {
-    data: function() {
-        return {
-			status: '',
-			input: {
-				username: '',
-				password: ''
+	module.exports = {
+		data: function() {
+			return {
+				input: {
+					login: '',
+					password: ''
+				}
 			}
-        }
-    },
-	methods: {
-		login: function(event) {
-			// TODO: send to server
-			if (this.input.username == this.mockAccount.username
-				&& this.input.password == this.mockAccount.password) {
-				this.$emit('authenticated', true);
-				this.$router.replace({ name: 'start' });
-				this.status = 'ok'
-			} else {
-				this.status = 'failed'
+		},
+		methods: {
+			login: function(event) {
+				// TODO: send to server
+				if (this.input.login == this.$root.mockAccount.login
+					&& this.input.password == this.$root.mockAccount.password) {
+					this.$emit('authenticated', true)
+					this.$router.replace({ name: 'main' })
+				}
+			}
+		},
+		mounted: function() {
+			if (this.$root.authenticated) {
+				this.$router.replace({ name: "main" });
 			}
 		}
 	}
-}
 </script>
-
-<style>
-.hello {
-    background-color: #fdd;
-}
-</style>
