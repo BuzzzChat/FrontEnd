@@ -3,12 +3,12 @@ const router = new VueRouter({
 		{
 			path: '/start',
 			name: 'start',
-			component: httpVueLoader('./components/start.vue')
+			component: httpVueLoader('./pages/start.vue')
 		},
 		{
 			path: '/login',
 			name: 'login',
-			component: httpVueLoader('./components/login.vue')
+			component: httpVueLoader('./pages/login.vue')
 		},
 		{
 			path: '/logout',
@@ -18,12 +18,12 @@ const router = new VueRouter({
 		{
 			path: '/register',
 			name: 'register',
-			component: httpVueLoader('./components/register.vue')
+			component: httpVueLoader('./pages/register.vue')
 		},
 		{
 			path: '/',
 			name: 'main',
-			component: httpVueLoader('./components/main.vue')
+			component: httpVueLoader('./pages/main.vue')
 		},
 		{
 			path: '*',
