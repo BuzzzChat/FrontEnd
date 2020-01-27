@@ -72,7 +72,7 @@
 				).then(response => {
 					console.log(response.data);
 					if (response.data.errorCode === 'correct') {
-						this.$emit('authenticated', response.data)
+						this.$emit('authenticated', response.data.user)
 						this.$router.replace({ name: 'main' })
 					} else if (response.data.errorCode === 'occupied_username') {
 						this.errors.push('Nazwa użytkownika jest już zajęta')

@@ -53,20 +53,23 @@ const app = new Vue({
 			mockAccount: {
 				email: 'user',
 				password: 'user'
-			}
-		}
-	},
-	computed: {
-		initial: function() {
-			if (!this.authenticated)
-				return 'Ja'
-			return this.authenticated.user.username.charAt(0)
+			},
+			initial: 'Ja'
 		}
 	},
 	methods: {
 		setAuthenticated(status) {
-			console.log('authenticated: ' + status)
+			console.log('authenticated:')
+			console.log(status)
 			this.authenticated = status
+		},
+		setUsername(value) {
+			console.log('username:')
+			console.log(value)
+			if (this.authenticated) {
+				this.authenticated.username = value
+				this.initial = value.charAt(0)
+			}
 		},
 		logout() {
 			this.setAuthenticated(false)

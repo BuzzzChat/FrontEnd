@@ -26,10 +26,7 @@
 							<p> Edycja profilu </p>
 						</div>
 						<div class="pole">
-							<div class = "pole-lewe">
-								<input type="text" placeholder="Nowy nick">
-								<input type="submit" value="Zmień nick">
-							</div>
+							<changenick class="pole-lewe"></changenick>
 							<div class = "pole-prawe">
 								<input type="password" placeholder="Bieżące hasło">
 								<input type="password" placeholder="Nowe hasło">
@@ -150,7 +147,9 @@
 	module.exports = {
 		components: {
 			'modal': httpVueLoader('../components/modal.vue'),
-			'question': httpVueLoader('../components/question.vue')
+			'question': httpVueLoader('../components/question.vue'),
+			'changenick': httpVueLoader('../components/change_nick.vue'),
+			'changepass': httpVueLoader('../components/change_pass.vue')
 		},
 		data: function() {
 			return {
