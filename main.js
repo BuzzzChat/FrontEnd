@@ -56,6 +56,13 @@ const app = new Vue({
 			}
 		}
 	},
+	computed: {
+		initial: function() {
+			if (!this.authenticated)
+				return 'Ja'
+			return this.authenticated.user.username.charAt(0)
+		}
+	},
 	methods: {
 		setAuthenticated(status) {
 			console.log('authenticated: ' + status)

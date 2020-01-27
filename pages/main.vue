@@ -11,7 +11,7 @@
 				</div>
 				<div class="user">
 					<div class="avatar">
-						<span>Ja</span>
+						<span>{{ initial }}</span>
 					</div>
 				</div>
 				<div class = "ikony_uzytkownika">
@@ -154,6 +154,11 @@
 		},
 		data: function() {
 			return {
+			}
+		},
+		computed: {
+			initial: function() {
+				return this.$root.initial;
 			}
 		},
 		methods: {
