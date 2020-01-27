@@ -48,31 +48,25 @@
 		methods: {
 			login: function(event) {
 				this.errors = []
-				if (this.input.email == this.$root.mockAccount.email
-					&& this.input.password == this.$root.mockAccount.password) {
-					this.$emit('authenticated', true)
-					this.$router.replace({ name: 'main' })
-				} else {
-					data = {
-						email: this.input.email,
-						password: this.input.password
-					}
-					axios.post(
-						this.$root.endpoint + '/management/loginUser',
-						data,
-						this.$root.axiosConfig
-					).then(response => {
-						console.log(response.data);
-						if (response.data.errorCode != 'correct') {
-							this.errors.push('Podano niepoprawne dane logowania')
-						} else {
-							this.$emit('authenticated', response.data)
-							this.$router.replace({ name: 'main' })
-						}
-					}, error => {
-						this.errors.push('Problem z połączeniem. Spróbuj ponownie później')
-					});
+				data = {
+					email: this.input.email,
+					password: this.input.password
 				}
+				axios.post(
+					this.$root.endpoint + '/management/loginUser',
+					data,
+					this.$root.axiosConfig
+				).then(response => {
+					console.log(response.data);
+					if (response.data.errorCode != 'correct') {
+						this.errors.push('Podano niepoprawne dane logowania')
+					} else {
+						this.$emit('authenticated', response.data.user)
+						this.$router.replace({ name: 'main' })
+					}
+				}, error => {
+					this.errors.push('Problem z połączeniem. Spróbuj ponownie później')
+				});
 			}
 		},
 		mounted: function() {

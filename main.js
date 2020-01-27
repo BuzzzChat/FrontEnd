@@ -50,10 +50,6 @@ const app = new Vue({
 			},
 			channel: '',
 			authenticated: false,
-			mockAccount: {
-				email: 'user',
-				password: 'user'
-			},
 			initial: 'Ja'
 		}
 	},
