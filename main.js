@@ -50,15 +50,12 @@ const app = new Vue({
 	},
 	methods: {
 		setAuthenticated(status) {
-			this.authenticated = status;
+			this.authenticated = status
 		},
 		logout() {
-			this.authenticated = false;
+			this.setAuthenticated(false)
+			this.$router.replace({ name: 'logout' })
+			console.log('logout')
 		}
-	// },
-	// mounted() {
-	// 	if (!this.authenticated) {
-	// 		this.$router.replace({ name: "login" });
-	// 	}
 	}
 }).$mount('#app')

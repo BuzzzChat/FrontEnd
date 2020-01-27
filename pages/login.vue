@@ -13,7 +13,7 @@
 					</p>
 				</div>
 				<div>
-					<input type="text" placeholder="Login" v-model="input.login">
+					<input type="text" placeholder="Login" autofocus v-model="input.login" ref="login">
 				</div>
 				<div>
 					<input type="password" placeholder="Password" v-model="input.password">
@@ -62,6 +62,7 @@
 			if (this.$root.authenticated) {
 				this.$router.replace({ name: "main" });
 			}
+			this.$refs.login.focus()
 		}
 	}
 </script>

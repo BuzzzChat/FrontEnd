@@ -17,7 +17,7 @@
 					<img src="bee.png" width="300" height="300">
 				</div>
 				<router-link :to="{ name: 'login' }">
-					<input type="submit" value="Zaloguj się">
+					<input type="submit" value="Zaloguj się" ref="login">
 				</router-link>
 				<router-link :to="{ name: 'register' }">
 					<input type="submit" value="Utwórz konto">
@@ -33,6 +33,7 @@
 			if (this.$root.authenticated) {
 				this.$router.replace({ name: "main" });
 			}
+			this.$refs.login.focus()
 		}
 	}
 </script>
