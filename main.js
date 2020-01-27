@@ -58,6 +58,10 @@ const app = new Vue({
 			console.log('authenticated:')
 			console.log(status)
 			this.authenticated = status
+			if (status && status.username)
+				this.initial = status.username.charAt(0)
+			else
+				this.initial = 'Ja'
 		},
 		setUsername(value) {
 			console.log('username:')

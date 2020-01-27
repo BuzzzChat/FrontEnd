@@ -1,6 +1,11 @@
 <!-- vim: set tabstop=2 shiftwidth=2 noexpandtab: -->
 <template>
 	<div v-bind="$attrs">
+		<div class="errors" v-if="errors.length">
+			<p v-for="error in errors">
+				{{ error }}
+			</p>
+		</div>
 		<form v-on:submit.prevent="change">
 			<input type="text" placeholder="Nowy nick" v-model="input.username">
 			<input type="submit" value="Zmień nick">
