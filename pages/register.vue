@@ -10,7 +10,7 @@
 					</p>
 				</div>
 				<div>
-					<input type="text" placeholder="Nazwa użytkownika" v-model="input.login">
+					<input type="text" placeholder="Nazwa użytkownika" v-model="input.username">
 				</div>
 				<div>
 					<input type="text" placeholder="Adres E-mail" v-model="input.email">
@@ -37,7 +37,7 @@
 			return {
 				errors: [],
 				input: {
-					login: '',
+					username: '',
 					email: '',
 					password: '',
 					password2: '',
@@ -49,13 +49,41 @@
 		methods: {
 			register: function(event) {
 				this.errors = []
-				// TODO: send to server
 				if (this.input.password != this.input.password2) {
 					this.errors.push('Wprowadzono 2 różne hasła')
-					return
 				}
-				this.$emit('authenticated', true)
-				this.$router.replace({ name: 'main' })
+				if (!this.input.age) {
+					this.errors.push('Wróć po ukończeniu 18 lat')
+				}
+				if (!this.input.consent) {
+					this.errors.push('Przeczytaj i zaakceptuj regulamin')
+				}
+				if (this.errors.length)
+					return
+				data = {
+					username: this.input.username,
+					email: this.input.email,
+					password: this.input.password
+				}
+				axios.post(
+					this.$root.endpoint + '/management/registerUser',
+					data,
+					this.$root.axiosConfig
+				).then(response => {
+					console.log(response.data);
+					if (response.data.errorCode === 'correct') {
+						this.$emit('authenticated', response.data)
+						this.$router.replace({ name: 'main' })
+					} else if (response.data.errorCode === 'occupied_username') {
+						this.errors.push('Nazwa użytkownika jest już zajęta')
+					} else if (response.data.errorCode === 'occupied_email') {
+						this.errors.push('Adres email jest już używany')
+					} else {
+						this.errors.push('Wystąpił błąd');
+					}
+				}, error => {
+					this.errors.push('Problem z połączeniem. Spróbuj ponownie później')
+				});
 			}
 		},
 		mounted: function() {
