@@ -23,7 +23,7 @@
 				</div>
 				Mam ukończone 18 lat <input type="checkbox" v-model="input.age">
 				<br>
-				Zapoznałem się z <a href="#">regulaminem</a><input type="checkbox" v-model="input.consent">
+				Zapoznałem się z <a href="./RegulaminBuzzz.pdf">regulaminem</a><input type="checkbox" v-model="input.consent">
 				<br>
 				<input type="submit" value="Utwórz konto">
 			</form>
