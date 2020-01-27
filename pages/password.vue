@@ -37,8 +37,23 @@
 		methods: {
 			submit: function(event) {
 				this.errors = []
-				// TODO: send to server
-				this.errors.push('TODO: Wysłano...')
+				data = {
+					email: this.input.email
+				}
+				axios.post(
+					this.$root.endpoint + '/management/remindPassword',
+					data,
+					this.$root.axiosConfig
+				).then(response => {
+					console.log(response.data);
+					if (response.data.errorCode === 'correct') {
+						this.errors.push('Na podany adres został wysłany link resetujący hasło.')
+					} else {
+						this.errors.push('Podano niepoprawne dane.')
+					}
+				}, error => {
+					this.errors.push('Problem z połączeniem. Spróbuj ponownie później')
+				});
 			}
 		},
 		mounted: function() {
