@@ -43,13 +43,14 @@ const app = new Vue({
 		return {
 			authenticated: false,
 			mockAccount: {
-				login: 'user',
+				email: 'user',
 				password: 'user'
 			}
 		}
 	},
 	methods: {
 		setAuthenticated(status) {
+			console.log('authenticated: ' + status)
 			this.authenticated = status
 		},
 		logout() {

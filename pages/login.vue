@@ -13,7 +13,7 @@
 					</p>
 				</div>
 				<div>
-					<input type="text" placeholder="Login" autofocus v-model="input.login" ref="login">
+					<input type="email" placeholder="Login" autofocus v-model="input.email" ref="email">
 				</div>
 				<div>
 					<input type="password" placeholder="Password" v-model="input.password">
@@ -40,7 +40,7 @@
 			return {
 				errors: [],
 				input: {
-					login: '',
+					email: '',
 					password: ''
 				}
 			}
@@ -49,7 +49,7 @@
 			login: function(event) {
 				this.errors = []
 				// TODO: send to server
-				if (this.input.login == this.$root.mockAccount.login
+				if (this.input.email == this.$root.mockAccount.email
 					&& this.input.password == this.$root.mockAccount.password) {
 					this.$emit('authenticated', true)
 					this.$router.replace({ name: 'main' })
@@ -62,7 +62,7 @@
 			if (this.$root.authenticated) {
 				this.$router.replace({ name: "main" });
 			}
-			this.$refs.login.focus()
+			this.$refs.email.focus()
 		}
 	}
 </script>
