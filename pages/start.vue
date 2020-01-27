@@ -14,10 +14,10 @@
 				<div class="obrazek">
 					<img src="bee.png" width="300" height="300">
 				</div>
-				<router-link to="/login">
+				<router-link :to="{ name: 'login' }">
 					<input type="submit" value="Zaloguj się">
 				</router-link>
-				<router-link to="/register">
+				<router-link :to="{ name: 'register' }">
 					<input type="submit" value="Utwórz konto">
 				</router-link>
 			</div>

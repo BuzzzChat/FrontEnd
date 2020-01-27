@@ -26,7 +26,7 @@
 				<a href="przypomnijHaslo.html">Zapomniałem hasła</a>
 			</div>
 			<div>
-				<router-link to="/register">
+				<router-link :to="{ name: 'register' }">
 					<input type="submit" value="Utwórz konto">
 				</router-link>
 			</div>
