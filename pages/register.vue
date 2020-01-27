@@ -4,17 +4,13 @@
 		<div class="content">
 			<form v-on:submit.prevent="register">
 				<h1> Rejestracja </h1>
-				<div v-if="errors.length">
-					<p>
-					<ul>
-						<li v-for="error in errors">
-							{{ error }}
-						</li>
-					</ul>
+				<div class="errors" v-if="errors.length">
+					<p v-for="error in errors">
+						{{ error }}
 					</p>
 				</div>
 				<div>
-					<input type="text" placeholder="Nazwa użytkownika" v-model="input.username">
+					<input type="text" placeholder="Nazwa użytkownika" v-model="input.login">
 				</div>
 				<div>
 					<input type="text" placeholder="Adres E-mail" v-model="input.email">
@@ -39,10 +35,9 @@
 	module.exports = {
 		data: function() {
 			return {
-				status: '',
 				errors: [],
 				input: {
-					username: '',
+					login: '',
 					email: '',
 					password: '',
 					password2: '',
@@ -53,8 +48,8 @@
 		},
 		methods: {
 			register: function(event) {
+				this.errors = []
 				// TODO: send to server
-				this.errors = [];
 				if (this.input.password != this.input.password2) {
 					this.errors.push('Wprowadzono 2 różne hasła')
 					return

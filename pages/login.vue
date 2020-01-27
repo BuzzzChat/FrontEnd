@@ -7,6 +7,11 @@
 			</div>
 			<h1>Logowanie</h1>
 			<form v-on:submit.prevent="login">
+				<div class="errors" v-if="errors.length">
+					<p v-for="error in errors">
+						{{ error }}
+					</p>
+				</div>
 				<div>
 					<input type="text" placeholder="Login" v-model="input.login">
 				</div>
@@ -33,6 +38,7 @@
 	module.exports = {
 		data: function() {
 			return {
+				errors: [],
 				input: {
 					login: '',
 					password: ''
@@ -41,11 +47,14 @@
 		},
 		methods: {
 			login: function(event) {
+				this.errors = []
 				// TODO: send to server
 				if (this.input.login == this.$root.mockAccount.login
 					&& this.input.password == this.$root.mockAccount.password) {
 					this.$emit('authenticated', true)
 					this.$router.replace({ name: 'main' })
+				} else {
+					this.errors.push('Podano niepoprawne dane logowania.')
 				}
 			}
 		},
