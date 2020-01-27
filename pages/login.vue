@@ -23,7 +23,7 @@
 				</div>
 			</form>
 			<div>
-				<a href="przypomnijHaslo.html">Zapomniałem hasła</a>
+				<router-link :to="{ name: 'password' }">Zapomniałem hasła</router-link>
 			</div>
 			<div>
 				<router-link :to="{ name: 'register' }">

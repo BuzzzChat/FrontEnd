@@ -21,6 +21,11 @@ const router = new VueRouter({
 			component: httpVueLoader('./pages/register.vue')
 		},
 		{
+			path: '/recover_password',
+			name: 'password',
+			component: httpVueLoader('./pages/password.vue')
+		},
+		{
 			path: '/',
 			name: 'main',
 			component: httpVueLoader('./pages/main.vue')
