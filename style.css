@@ -40,14 +40,19 @@ div{
 .start{
 	margin: 4em;
 }
- .rejestracja .content div{
-		margin-bottom: 0.5em;
-		justify-content: center;
-	}
 
-	.rejestracja{
-		margin: 4em;
-	}
+.errors {
+	display: block;
+}
+
+.rejestracja .content div{
+	margin-bottom: 0.5em;
+	justify-content: center;
+}
+
+.rejestracja{
+	margin: 4em;
+}
 
 .rejestracja input {
 	margin: 0 auto;
@@ -62,7 +67,10 @@ div{
 .rejestracja .content img{
 	margin: 0 auto;
 }
+
 .content{
+	width: 20em;
+	margin: 0 auto;
 	font-size: 1em;
 	align-content: center;
 	flex-direction: column;
@@ -70,6 +78,7 @@ div{
 	text-align: center;
 	display: block;
 }
+
 .content a{
 	font-size: 0.65em;
 	color: var(--white); 
@@ -411,6 +420,10 @@ a {
 	flex-direction: column;
 }
 
+.modal-srodek > div + div {
+	margin-top: 1em;
+}
+
 /* The Close Button */
 .close {
 	color: var(--white);
@@ -434,6 +447,8 @@ a {
 }
 .hive {
   border: 0;
+  margin-left: .6em;
+  margin-right: .6em;
   position: relative;
 
   background: var(--yellow);
