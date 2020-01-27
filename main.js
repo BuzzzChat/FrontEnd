@@ -41,6 +41,14 @@ const app = new Vue({
 	router,
 	data: function() {
 		return {
+			endpoint: 'http://147.135.210.97:81',
+			axiosConfig: {
+				headers: {
+					'Content-Type': 'application/json;charset=UTF-8',
+					"Access-Control-Allow-Origin": "*",
+				}
+			},
+			channel: '',
 			authenticated: false,
 			mockAccount: {
 				email: 'user',
