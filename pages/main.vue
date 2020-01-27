@@ -27,12 +27,7 @@
 						</div>
 						<div class="pole">
 							<changenick class="pole-lewe"></changenick>
-							<div class = "pole-prawe">
-								<input type="password" placeholder="Bieżące hasło">
-								<input type="password" placeholder="Nowe hasło">
-								<input type="password" placeholder="Powtórz nowe hasło">
-								<input type="submit" value="Zmień hasło">
-							</div>
+							<changepass class="pole-prawe"></changepass>
 						</div>
 					</modal>
 				</div>
