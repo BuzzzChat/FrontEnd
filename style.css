@@ -409,7 +409,7 @@ a {
 	margin: 20px;
 	flex-direction: row;
 }
-.pole > div {
+.pole > * {
 	margin: 10px;
 	flex-direction: column;
 	width: 15em;
