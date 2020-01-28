@@ -377,7 +377,6 @@ a {
 }
 /* The Modal (background) */
 .modal {
-	/* display: none; /* Hidden by default */ */
 	display: block;
 	position: fixed; /* Stay in place */
 	z-index: 1; /* Sit on top */
@@ -473,4 +472,24 @@ a {
 .hive:after {
   left: 100%;
   border-left-color: var(--yellow);
+}
+
+.nochat{
+	padding: 6em;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+}
+.nochat h1{
+	width: max-content;
+	height: max-content;
+	margin: 0 auto;
+}
+.nochat-content{
+	flex-direction: row;
+	width: 100%;
+}
+.nochat p{
+	margin:50px;
+	width: 220px;
 }

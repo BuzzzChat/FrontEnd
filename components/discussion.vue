@@ -87,7 +87,12 @@
 			</div>
 		</div>
 		<div class="nochat" v-else>
-			<h1>Welcome!</h1>
+			<h1>Witaj!</h1>
+			<div class="nochat-content">
+			<p> Korzystaj (swobodnie) ze wszystkich funkcjonalności komunikatora Buzzz! Rozmawiaj ze znajomymi prywatnie, swobodnie, bez limitów! </p>
+			<!-- <p> Zaproś znajomych do prywatnego czatu grupowego! </p> -->
+			<p> Wysyłaj pliki, zdjęcia i emotki! </p>
+		</div>
 		</div>
 	</div>
 </template>
