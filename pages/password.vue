@@ -16,7 +16,7 @@
 				<input type="text" placeholder="email" v-model="input.email">
 			</div>
 			<div>
-				<input type="submit" value="Wyślij nowe hasło">
+				<button class="hive">Wyślij nowe hasło</button>
 			</div>
 		</form>
 	</div>

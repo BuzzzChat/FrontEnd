@@ -1,7 +1,7 @@
 <!-- vim: set tabstop=2 shiftwidth=2 noexpandtab: -->
 <template>
 	<div class="rejestracja">
-		<form class="content" v-on:submit.prevent="login">
+		<form class="content" v-on:submit.prevent="login" ref="form">
 			<div class="obrazek">
 				<img src="bee.png" width="300" height="300">
 			</div>
@@ -18,14 +18,14 @@
 					<input type="password" placeholder="Password" v-model="input.password">
 				</div>
 				<div>
-					<input type="submit" value="Zaloguj się">
+					<button class="hive" @click="this.$refs.form.submit()">Zaloguj się</button>
 				</div>
 			<div>
 				<router-link :to="{ name: 'password' }">Zapomniałem hasła</router-link>
 			</div>
 			<div>
 				<router-link :to="{ name: 'register' }">
-					<input type="submit" value="Utwórz konto">
+					<button class="hive">Utwórz konto</button>
 				</router-link>
 			</div>
 		</form>

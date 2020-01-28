@@ -1,7 +1,7 @@
 <!-- vim: set tabstop=2 shiftwidth=2 noexpandtab: -->
 <template>
 	<div class="rejestracja">
-		<form class="content" v-on:submit.prevent="register">
+		<form class="content" v-on:submit.prevent="register" ref="form">
 			<h1> Rejestracja </h1>
 			<div class="errors" v-if="errors.length">
 				<p v-for="error in errors">
@@ -24,7 +24,7 @@
 			<br>
 			Zapoznałem się z <a href="./RegulaminBuzzz.pdf">regulaminem</a><input type="checkbox" v-model="input.consent">
 			<br>
-			<input type="submit" value="Utwórz konto">
+			<button class="hive" @click="this.$refs.form.submit()">Utwórz konto</button>
 		</form>
 	</div>
 </template>
