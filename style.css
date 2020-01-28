@@ -168,7 +168,7 @@ p{
 
 .wyszukiwarka{
 	flex-direction: row;
-	margin: 0.5em 0.5em;
+	margin: 0.5em 0 0.5em 0.5em;
 }
 
 h1{
@@ -358,6 +358,9 @@ button{
 	border: none;
 	cursor: pointer;
 	font-size: 1.05em;
+}
+.btn_lewy + .btn_lewy {
+	margin-left: -25px;
 }
 
 .btn_prawy{

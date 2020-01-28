@@ -9,7 +9,7 @@
 				</div>
 				<div class = ikony_znajomego">
 					<div class = "Zmiana">
-						<modal id="btn_zmiana" btn_class="btn_prawy">
+						<modal title="Zmiana nicku" id="btn_zmiana" btn_class="btn_prawy">
 						<template v-slot:button>
 							<i class="material-icons">edit</i>
 						</template>
@@ -19,7 +19,7 @@
 					</div>
 					<!-- Blokowanie -->
 					<div class = "blokowanie">
-						<question id="btn_blok" btn_class="btn_prawy" @yes="console.log('TODO: blokowanie usera')">
+						<question title="Blokowanie użytkownika" id="btn_blok" btn_class="btn_prawy" @yes="console.log('TODO: blokowanie usera')">
 						<template v-slot:button>
 							<i class="material-icons">block</i>
 						</template>
@@ -31,7 +31,7 @@
 					</div>
 					<!-- Usuwanie -->
 					<div class = "Usuwanie">
-						<question id="btn_usuw" btn_class="btn_prawy" @yes="console.log('TODO: usuwanie usera')">
+						<question title="Usuwanie kontaktu:" id="btn_usuw" btn_class="btn_prawy" @yes="console.log('TODO: usuwanie usera')">
 						<template v-slot:button>
 							<i class="material-icons">delete</i>
 						</template>
@@ -62,29 +62,27 @@
 				</div>
 			</div>
 			<!-- Pisanie wiadomosci, wysylanie plikow, zdjec itp -->
-			<div class = "wiadomosc">
-				<form v-on:submit.prevent="sendMessage">
-					<div class = "ikony_wiadomosci">
-						<div class = "plik">
-							<button class = "btn_lewy"><i class="material-icons">insert_drive_file</i></button>
-						</div>
-						<div class = "zdjecie">
-							<button class = "btn_lewy"><i class="material-icons">add_photo_alternate</i></button>
-						</div>
-						<div class = "emoji">
-							<button class = "btn_lewy"><i class="material-icons">insert_emoticon</i></button>
-						</div>
+			<form v-on:submit.prevent="sendMessage" class="wiadomosc">
+				<div class = "ikony_wiadomosci">
+					<div class = "plik">
+						<button class = "btn_lewy"><i class="material-icons">insert_drive_file</i></button>
 					</div>
-					<div class = "wpisywanie_wiadomosci">
-						<input id="message_input" type = "text" placeholder = "Napisz wiadomosc..." v-model="message_text">
+					<div class = "zdjecie">
+						<button class = "btn_lewy"><i class="material-icons">add_photo_alternate</i></button>
 					</div>
-					<div class = "ikony_wiadomosci">
-						<div class = "wyslij">
-							<button class = "btn_lewy"><i class="material-icons">send</i></button>
-						</div>
+					<div class = "emoji">
+						<button class = "btn_lewy"><i class="material-icons">insert_emoticon</i></button>
 					</div>
-				</form>
-			</div>
+				</div>
+				<div class = "wpisywanie_wiadomosci">
+					<input id="message_input" type = "text" placeholder = "Napisz wiadomosc..." v-model="message_text">
+				</div>
+				<div class = "ikony_wiadomosci">
+					<div class = "wyslij">
+						<button class = "btn_lewy"><i class="material-icons">send</i></button>
+					</div>
+				</div>
+			</form>
 		</div>
 		<div class="nochat" v-else>
 			<h1>Witaj!</h1>

@@ -5,7 +5,7 @@
 		<div class = "lewy">
 			<div class = "naglowek">
 				<div class = "ikony_uzytkownika">
-					<button id="btn_wyloguj" class="btn_lewy" @click="logout">
+					<button title="Wyloguj" id="btn_wyloguj" class="btn_lewy" @click="logout">
 						<i class="material-icons">&#xe879;</i>
 					</button>
 				</div>
@@ -16,7 +16,7 @@
 				</div>
 				<div class = "ikony_uzytkownika">
 					<!-- Edycja profilu -->
-					<modal btn_class="btn_lewy" btn_id="btn_edycja">
+					<modal title="Edycja profilu" btn_class="btn_lewy" btn_id="btn_edycja">
 						<template v-slot:button>
 							<i class="material-icons">&#xe8b8;</i>
 						</template>
@@ -38,12 +38,12 @@
 					<input type = "text" placeholder="Szukaj..." v-model="search_text" v-on:keyup="search">
 				</div>
 				<div class = "przycisk">
+					<button class="btn_lewy" v-on:click.prevent="clear_search" v-if="search_results.length > 0 || search_text"><i class="material-icons">close</i></button>
 					<button class = "btn_lewy"><i class="material-icons">search</i></button>
 				</div>
 			</form>
 			<div class="" v-if="search_results.length > 0 || search_text">
 				<ul>
-					<li><a v-on:click="clear_search">X</a></li>
 					<searchresult v-for="result in search_results" :username="result.user.username" :userid="result.user.id" :is_contact="!! result.contact"></searchresult>
 				</ul>
 			</div>
