@@ -18,7 +18,7 @@
 			add: function() {
 				let conversationId = this.friend.conversation_id;
 				stompClient.subscribe(`/channel/${conversationId}`, onMessageReceived);
-				stompClient.send(`/app/chat/${conversationId}/invitation`, {}, JSON.stringify({
+				stompClient.send(`/app/chat/${conversationId}/sendMessage`, {}, JSON.stringify({
 					"senderId": this.$root.authenticated.id,
 					"conversationId": conversationId,
 					"messageType": "accepting_request",
@@ -29,7 +29,7 @@
 			reject: function() {
 				let conversationId = this.friend.conversation_id;
 				stompClient.subscribe(`/channel/${conversationId}`, onMessageReceived);
-				stompClient.send(`/app/chat/${conversationId}/invitation`, {}, JSON.stringify({
+				stompClient.send(`/app/chat/${conversationId}/sendMessage`, {}, JSON.stringify({
 					"senderId": this.$root.authenticated.id,
 					"conversationId": conversationId,
 					"messageType": "rejecting_request",

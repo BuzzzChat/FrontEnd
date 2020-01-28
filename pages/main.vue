@@ -110,11 +110,11 @@
 				this.$root.logout()
 			},
 			clear_search: function() {
-				this.search_text = ''
+				this.search_text = '';
 				this.search_results = []
 			},
 			chat: function(chatid, name) {
-				this.chatid = chatid
+				this.chatid = chatid;
 				this.name = name
 			},
 			search: function() {
@@ -142,7 +142,8 @@
 					data,
 					this.$root.axiosConfig
 				).then(response => {
-					friends = response.data
+					this.friends = response.data;
+					console.log("%O XXXXXXXXXXXX", response.data);
 				}, error => {
 					console.log('Problem z połączeniem')
 				});
@@ -156,22 +157,23 @@
 					data,
 					this.$root.axiosConfig
 				).then(response => {
-					this.waiting = response.data
+					this.waiting = response.data;
+					console.log("AAAAAAAAAAAAAAAA $O", response.data)
 				}, error => {
 					console.log('Problem z połączeniem')
 				});
 			},
 			refresh: function() {
-				get_waiting()
-				get_contacts()
+				this.get_waiting();
+				this.get_contacts();
 			}
 		},
 		mounted: function() {
 			if (!this.$root.authenticated) {
-				this.$router.replace({ name: "start" })
+				this.$router.replace({ name: "start" });
 				return
 			}
-			init(this.$root.authenticated.id)
+			init(this.$root.authenticated.id);
 			this.refresh()
 		}
 	}

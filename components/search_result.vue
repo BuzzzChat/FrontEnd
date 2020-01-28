@@ -23,13 +23,14 @@
 					this.$root.axiosConfig
 				).then(response => {
 					console.log(response.data);
-					this.is_contact = true
+					this.is_contact = true;
 
 					let conversationId = response.data.conversationId;
 					console.log('conversation id:' + conversationId);
-					stompClient.subscribe(`/channel/user${this.userid}`, onMessageReceived);
+					// stompClient.subscribe(`/channel/user${this.userid}`, onMessageReceived);
 					stompClient.subscribe(`/channel/${conversationId}`, onMessageReceived);
-					stompClient.send(`/app/chat/${this.$root.authenticated.id}/sendMessage`, {}, JSON.stringify({
+					let privateChannel = 'user' + this.$root.authenticated.id;
+					stompClient.send(`/app/chat/${privateChannel}/sendMessage`, {}, JSON.stringify({
 						"senderId": this.$root.authenticated.id,
 						"conversationId": conversationId,
 						"messageType": "pending_request",

@@ -32,9 +32,10 @@ function initialConnectionLoader() {
             let contactList = JSON.parse(data);
             for (let i = 0; i < contactList.length; i++) {
                 let contact_user_id = contactList[i].contact_user_id;
+                let privateChannel = 'user' + contact_user_id;
                 let contact_conversationId = contactList[i].conversation_id;
                 stompClient.subscribe(`/channel/${contact_conversationId}`, onMessageReceived);
-                stompClient.send(`/app/chat/${contact_user_id}/sendMessage`,
+                stompClient.send(`/app/chat/${privateChannel}/sendMessage`,
                     {}, JSON.stringify({
                         "senderId": userId,
                         "conversationId": contact_conversationId,
@@ -81,7 +82,8 @@ function initialConnectionLoader() {
                     .then(data => {
                         let participantsIdsList = JSON.parse(data);
                         for (let i = 0; i < participantsIdsList.length; i++) {
-                            stompClient.send(`/app/chat/${participantsIdsList[i]}/sendMessage`,
+                            let privateChannel = 'user' + participantsIdsList[i];
+                            stompClient.send(`/app/chat/${privateChannel}/sendMessage`,
                                 {}, JSON.stringify({
                                     "senderId": userId,
                                     "conversationId": thisConversationId,
@@ -104,7 +106,8 @@ function initialConnectionLoader() {
 
 /** Wywoływana automatycznie */
 function onLogin() {
-    stompClient.subscribe(`/channel/${userId}`, onContactRequest);
+    let privateChannel = 'user' + userId;
+    stompClient.subscribe(`/channel/${privateChannel}`, onContactRequest);
     initialConnectionLoader();
     console.log('log: on login')
 }
@@ -163,7 +166,8 @@ function sendContactRequest(userId, secondUserId) {
             let conversationId = JSON.parse(data).conversationId;
             console.log('conversation id:' + conversationId);
             stompClient.subscribe(`/channel/${conversationId}`, onMessageReceived);
-            stompClient.send(`/app/chat/${secondUserId}/sendMessage`, {}, JSON.stringify({
+            let privateChannel = 'user' + secondUserId;
+            stompClient.send(`/app/chat/${privateChannel}/sendMessage`, {}, JSON.stringify({
                 "senderId": userId,
                 "conversationId": conversationId,
                 "messageType": "pending_request",
@@ -214,7 +218,8 @@ function onGroupConversationCreated(participantsIds, groupConversationId) {
     stompClient.subscribe(`/channel/${groupConversationId}`, onMessageReceived);
 
     for (let i = 0; i < participantsIds.length; i++) {
-        stompClient.send(`/app/chat/${participantsIds[i]}/sendMessage`,
+        let privateChannel = 'user' + participantsIds[i];
+        stompClient.send(`/app/chat/${privateChannel}/sendMessage`,
             {}, JSON.stringify({
                 "senderId": userId,
                 "conversationId": groupConversationId,
