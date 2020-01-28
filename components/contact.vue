@@ -2,7 +2,6 @@
 <template>
 	<li @click="message">
 		{{ friend.contact.contact_name }}
-		<a @click="remove">x</a>
 	</li>
 </template>
 
@@ -15,23 +14,7 @@
 		},
 		methods: {
 			message: function() {
-				// To sypie crashami wiec zakomentowałem
-				//this.message_callback(friend.conversation_id, friend.contact_name)
-			},
-			remove: function() {
-				let conversationId = this.friend.contact.conversation_id;
-				console.log('conversation id:' + conversationId);
-				stompClient.send(`/app/chat/${this.$root.authenticated.id}/sendMessage`, {}, JSON.stringify({
-					"senderId": this.$root.authenticated.id,
-					"conversationId": conversationId,
-					"messageType": "contact_removal",
-					"viewed": false,
-					"content": null,
-					"attachmentType": "none",
-					"attachment": null,
-					"loadingMode": false
-				}));
-				this.$parent.refresh();
+				this.message_callback(this.friend.contact.conversation_id, this.friend.contact.contact_name)
 			}
 		}
 	}

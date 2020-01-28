@@ -31,7 +31,7 @@
 					</div>
 					<!-- Usuwanie -->
 					<div class = "Usuwanie">
-						<question title="Usuwanie kontaktu:" id="btn_usuw" btn_class="btn_prawy" @yes="console.log('TODO: usuwanie usera')">
+						<question title="Usuwanie kontaktu:" id="btn_usuw" btn_class="btn_prawy" @yes="remove">
 						<template v-slot:button>
 							<i class="material-icons">delete</i>
 						</template>
@@ -89,7 +89,7 @@
 			<div class="nochat-content">
 			<p> Korzystaj ze wszystkich funkcjonalności komunikatora Buzzz! </p>
 			<p> Wysyłaj pliki, zdjęcia i emotki! </p>
-			<p>Rozmawiaj ze znajomymi prywatnie, swobodnie, bez limitów! </p>
+			<p> Rozmawiaj ze znajomymi prywatnie, swobodnie, bez limitów! </p>
 			<!-- <p> Zaproś znajomych do prywatnego czatu grupowego! </p> -->
 
 		</div>
@@ -111,6 +111,24 @@
 			}
 		},
 		methods: {
+			remove: function() {
+				this.$parent.chatid = 0
+				this.$parent.name = ''
+
+				let conversationId = this.chatid;
+				console.log('conversation id:' + conversationId);
+				stompClient.send(`/app/chat/${this.$root.authenticated.id}/sendMessage`, {}, JSON.stringify({
+					"senderId": this.$root.authenticated.id,
+					"conversationId": conversationId,
+					"messageType": "contact_removal",
+					"viewed": false,
+					"content": null,
+					"attachmentType": "none",
+					"attachment": null,
+					"loadingMode": false
+				}));
+				this.$parent.refresh();
+			},
 			sendMessage: function() {
 				stompClient.send(`/app/chat/${conversationId}/sendMessage`, {}, JSON.stringify({
 					"senderId": this.$root.authenticated.id,
