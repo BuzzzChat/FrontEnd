@@ -1,16 +1,14 @@
 <!-- vim: set tabstop=2 shiftwidth=2 noexpandtab: -->
 <template>
-	<div>
+	<form v-on:submit.prevent="change">
 		<div class="errors" v-if="errors.length">
 			<p v-for="error in errors">
-				{{ error }}
+			{{ error }}
 			</p>
 		</div>
-		<form v-on:submit.prevent="change">
-			<input type="text" placeholder="Nowy nick" v-model="input.username">
-			<input type="submit" value="Zmień nick">
-		</form>
-	</div>
+		<input type="text" placeholder="Nowy nick" v-model="input.username">
+		<input type="submit" value="Zmień nick">
+	</form>
 </template>
 
 <script>

@@ -1,18 +1,16 @@
 <!-- vim: set tabstop=2 shiftwidth=2 noexpandtab: -->
 <template>
-	<div v-bind="$attrs">
+	<form v-on:submit.prevent="change">
 		<div class="errors" v-if="errors.length">
 			<p v-for="error in errors">
-				{{ error }}
+			{{ error }}
 			</p>
 		</div>
-		<form v-on:submit.prevent="change">
-			<input type="password" placeholder="Bieżące hasło" v-model="input.current">
-			<input type="password" placeholder="Nowe hasło" v-model="input.password">
-			<input type="password" placeholder="Powtórz nowe hasło" v-model="input.password2">
-			<input type="submit" value="Zmień hasło">
-		</form>
-	</div>
+		<input type="password" placeholder="Bieżące hasło" v-model="input.current">
+		<input type="password" placeholder="Nowe hasło" v-model="input.password">
+		<input type="password" placeholder="Powtórz nowe hasło" v-model="input.password2">
+		<input type="submit" value="Zmień hasło">
+	</form>
 </template>
 
 <script>
