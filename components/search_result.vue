@@ -40,6 +40,7 @@
 						"attachment": null,
 						"loadingMode": false
 					}));
+					this.$parent.refresh();
 				}, error => {
 					console.log('Problem z połączeniem')
 				});
