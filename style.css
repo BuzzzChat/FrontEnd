@@ -27,6 +27,9 @@ div, form {
 .content {
 	width: 100%;
 }
+.zaproszenia, .czat_grupowy, .znajomi {
+	flex-direction: column;
+}
 
 .split{
 	flex-direction: row;

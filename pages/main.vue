@@ -52,9 +52,7 @@
 				<div class = "znajomi">
 					<a> Znajomi</a>
 					<ul>
-						<li v-for="friend in friends">
-							{{ friend }}
-						</li>
+						<contact v-for="friend in friends" :friend="friend" :message_callback="chat"></contact>
 					</ul>
 				</div>
 				<!-- Czat grupowy -->
@@ -65,18 +63,16 @@
 					</div>
 				</div>
 				<!-- Zaproszenia -->
-				<div class = "Zaproszenia">
+				<div class = "zaproszenia">
 					<a>Zaproszenia do znajomych</a>
 					<ul>
-						<li v-for="friend in waiting">
-							X:{{ friend.contact_name }}
-						</li>
+						<waiting v-for="friend in waiting" :friend="friend" :callback="get_waiting"></waiting>
 					</ul>
 				</div>
 			</div>
 		</div>
 		<!-- Ekran rozmowy -->
-		<discussion v-bind:chatid="chatid">
+		<discussion :chatid="chatid" :name="name">
 		</discussion>
 	</div>
 	</div>
@@ -90,11 +86,14 @@
 			'changenick': httpVueLoader('../components/change_nick.vue'),
 			'changepass': httpVueLoader('../components/change_pass.vue'),
 			'discussion': httpVueLoader('../components/discussion.vue'),
-			'searchresult': httpVueLoader('../components/search_result.vue')
+			'contact': httpVueLoader('../components/contact.vue'),
+			'searchresult': httpVueLoader('../components/search_result.vue'),
+			'waiting': httpVueLoader('../components/waiting.vue')
 		},
 		data: function() {
 			return {
 				chatid: 0,
+				name: '',
 				friends: [],
 				waiting: [],
 				search_results: [],
@@ -113,6 +112,10 @@
 			clear_search: function() {
 				this.search_text = ''
 				this.search_results = []
+			},
+			chat: function(chatid, name) {
+				this.chatid = chatid
+				this.name = name
 			},
 			search: function() {
 				data = {
@@ -157,7 +160,7 @@
 				).then(response => {
 					console.log('get_waiting')
 					console.log(response.data)
-					waiting = response.data
+					this.waiting = response.data
 				}, error => {
 					console.log('Problem z połączeniem')
 				});

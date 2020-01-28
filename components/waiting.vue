@@ -1,46 +1,41 @@
 <!-- vim: set tabstop=2 shiftwidth=2 noexpandtab: -->
 <template>
 	<li>
-		{{ username }} <a @click="add">+</a>
-		{{ is_contact }}
+		{{ friend.contact_name }}
+		<a @click="add">+</a>
+		<a @click="reject">-</a>
 	</li>
 </template>
 
 <script>
 	module.exports = {
-		props: ['username', 'userid', 'is_contact'],
+		props: ['friend', 'callback'],
 		data: function() {
 			return {
 			}
 		},
 		methods: {
 			add: function() {
-				data = {
-					invitingUserId: this.$root.authenticated.id,
-					invitedUserId: this.userid
-				}
-				axios.post(
-					this.$root.endpoint + '/contact/addUser',
-					data,
-					this.$root.axiosConfig
-				).then(response => {
-					console.log(response.data);
-					this.is_contact = true
-				}, error => {
-					console.log('Problem z połączeniem')
-				});
-			},
-			performDynamicAction: function(conversationId, userId, type) {
-				stompClient.send(`/app/chat/${conversationId}/sendMessage`, {}, JSON.stringify({
-					"senderId": userId,
+				let conversationId = this.friend.conversation_id;
+				stompClient.subscribe(`/channel/${conversationId}`, onMessageReceived);
+				stompClient.send(`/app/chat/${conversationId}/invitation`, {}, JSON.stringify({
+					"senderId": this.$root.authenticated.id,
 					"conversationId": conversationId,
-					"messageType": type,
-					"viewed": false,
-					"content": null,
-					"attachmentType": "none",
-					"attachment": null,
+					"messageType": "accepting_request",
 					"loadingMode": false
 				}));
+				this.callback()
+			},
+			reject: function() {
+				let conversationId = this.friend.conversation_id;
+				stompClient.subscribe(`/channel/${conversationId}`, onMessageReceived);
+				stompClient.send(`/app/chat/${conversationId}/invitation`, {}, JSON.stringify({
+					"senderId": this.$root.authenticated.id,
+					"conversationId": conversationId,
+					"messageType": "rejecting_request",
+					"loadingMode": false
+				}));
+				this.callback()
 			}
 		}
 	}

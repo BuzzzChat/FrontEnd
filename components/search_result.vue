@@ -26,6 +26,7 @@
 				).then(response => {
 					console.log(response.data);
 					this.is_contact = true
+
 					let conversationId = response.data.conversationId;
 					console.log('conversation id:' + conversationId);
 					stompClient.subscribe(`/channel/${conversationId}`, onMessageReceived);

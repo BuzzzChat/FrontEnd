@@ -5,7 +5,7 @@
 			<!-- Naglowek znajomego -->
 			<div class = "naglowek_rozmowy">
 				<div class = "nazwa_znajomego">
-					<a>Mój znajomy</a>
+					<a>{{ name }}</a>
 				</div>
 				<div class = ikony_znajomego">
 					<div class = "Zmiana">
@@ -47,13 +47,13 @@
 			<div class="czat">
 				<div class="scrollbox">
 					<template v-for="message in messages">
-						<div v-bind:class="message.senderId === this.$root.authenticated.id ? 'wiadomosc_moja' : 'wiadomosc_znajomego'">
+						<div v-bind:class="message.sender === 'User' ? 'wiadomosc_moja' : 'wiadomosc_znajomego'">
 							<div class = "avatar">
-								<span>{{ message.senderId }}</span>
+								<span>{{ message.message.senderId }}</span>
 							</div>
 							<div class = "dymek">
 								<div class = "dymek_znajomego">
-									<p>{{ message.content }}</p>
+									<p>{{ message.message.content }}</p>
 								</div>
 							</div>
 						</div>
@@ -98,7 +98,7 @@
 			'modal': httpVueLoader('../components/modal.vue'),
 			'question': httpVueLoader('../components/question.vue'),
 		},
-		props: ['chatid'],
+		props: ['chatid', 'name'],
 		data: function() {
 			return {
 				messages: [],
@@ -118,6 +118,24 @@
 					"loadingMode": false
 				}));
 			}
+		},
+		mounted: function() {
+				data = {
+					userId: this.$root.authenticated.id,
+					conversationId: this.chatid,
+					dateTime: "2020-01-01 00:00:00"
+				}
+				axios.post(
+					this.$root.endpoint + '/conversation/listMessages',
+					data,
+					this.$root.axiosConfig
+				).then(response => {
+					console.log('get_waiting')
+					console.log(response.data)
+					this.messages = response.data
+				}, error => {
+					console.log('Problem z połączeniem')
+				});
 		}
 	}
 </script>
