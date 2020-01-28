@@ -19,20 +19,19 @@
 				//this.message_callback(friend.conversation_id, friend.contact_name)
 			},
 			remove: function() {
-				// tu trzeba się odnieść do klikniętego kontaktu i wyciągnąć z niego conversationId
-
-				//let conversationId =
+				let conversationId = this.friend.contact.conversation_id;
 				console.log('conversation id:' + conversationId);
 				stompClient.send(`/app/chat/${this.$root.authenticated.id}/sendMessage`, {}, JSON.stringify({
 					"senderId": this.$root.authenticated.id,
 					"conversationId": conversationId,
-					"messageType": "pending_request",
+					"messageType": "contact_removal",
 					"viewed": false,
 					"content": null,
 					"attachmentType": "none",
 					"attachment": null,
 					"loadingMode": false
 				}));
+				this.$parent.refresh();
 			}
 		}
 	}

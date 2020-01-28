@@ -12,7 +12,7 @@
 				<input type="text" placeholder="Nazwa użytkownika" v-model="input.username">
 			</div>
 			<div>
-				<input type="text" placeholder="Adres E-mail" v-model="input.email">
+				<input type="email" placeholder="Adres E-mail" v-model="input.email">
 			</div>
 			<div>
 				<input type="password" placeholder="Hasło" v-model="input.password">
@@ -24,7 +24,7 @@
 			<br>
 			Zapoznałem się z <a href="./RegulaminBuzzz.pdf">regulaminem</a><input type="checkbox" v-model="input.consent">
 			<br>
-			<button class="hive" @click="this.$refs.form.submit()">Utwórz konto</button>
+			<button class="hive" @click="submitter">Utwórz konto</button>
 		</form>
 	</div>
 </template>
@@ -45,6 +45,9 @@
 			}
 		},
 		methods: {
+			submitter: function() {
+				this.$refs.form.submit()
+			},
 			register: function(event) {
 				this.errors = []
 				if (this.input.password != this.input.password2) {

@@ -102,7 +102,7 @@
 		},
 		computed: {
 			initial: function() {
-				return this.$root.initial;
+				return this.$root.initial.toUpperCase();
 			}
 		},
 		methods: {
@@ -143,7 +143,6 @@
 					this.$root.axiosConfig
 				).then(response => {
 					this.friends = response.data;
-					console.log("%O XXXXXXXXXXXX", response.data);
 				}, error => {
 					console.log('Problem z połączeniem')
 				});
@@ -158,7 +157,6 @@
 					this.$root.axiosConfig
 				).then(response => {
 					this.waiting = response.data;
-					console.log("AAAAAAAAAAAAAAAA $O", response.data)
 				}, error => {
 					console.log('Problem z połączeniem')
 				});
