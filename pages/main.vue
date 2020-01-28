@@ -35,7 +35,7 @@
 			<!-- Wyszukiwarka -->
 			<form v-on:submit.prevent="search" class="wyszukiwarka">
 				<div class = "wpisywanie">
-					<input type = "text" placeholder="Szukaj..." v-model="search_text">
+					<input type = "text" placeholder="Szukaj..." v-model="search_text" v-on:keyup="search">
 				</div>
 				<div class = "przycisk">
 					<button class = "btn_lewy"><i class="material-icons">search</i></button>
@@ -66,7 +66,7 @@
 				<div class = "zaproszenia">
 					<a>Zaproszenia do znajomych</a>
 					<ul>
-						<waiting v-for="friend in waiting" :friend="friend" :callback="get_waiting"></waiting>
+						<waiting v-for="friend in waiting" :friend="friend" :callback="refresh"></waiting>
 					</ul>
 				</div>
 			</div>
@@ -164,6 +164,10 @@
 				}, error => {
 					console.log('Problem z połączeniem')
 				});
+			},
+			refresh: function() {
+				get_waiting()
+				get_contacts()
 			}
 		},
 		mounted: function() {

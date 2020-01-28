@@ -1,8 +1,7 @@
 <!-- vim: set tabstop=2 shiftwidth=2 noexpandtab: -->
 <template>
 	<li>
-		<a @click="add">{{ username }}</a>
-		{{ is_contact }}
+		{{ username }} <a v-if="is_contact" @click="add">+</a>
 	</li>
 </template>
 
@@ -15,13 +14,12 @@
 		},
 		methods: {
 			add: function() {
-				data = {
-					invitingUserId: this.$root.authenticated.id,
-					invitedUserId: this.userid
-				}
 				axios.post(
 					this.$root.endpoint + '/contact/addUser',
-					data,
+					{
+						invitingUserId: this.$root.authenticated.id,
+						invitedUserId: this.userid
+					},
 					this.$root.axiosConfig
 				).then(response => {
 					console.log(response.data);
@@ -29,6 +27,7 @@
 
 					let conversationId = response.data.conversationId;
 					console.log('conversation id:' + conversationId);
+					stompClient.subscribe(`/channel/user${this.userid}`, onMessageReceived);
 					stompClient.subscribe(`/channel/${conversationId}`, onMessageReceived);
 					stompClient.send(`/app/chat/${this.$root.authenticated.id}/sendMessage`, {}, JSON.stringify({
 						"senderId": this.$root.authenticated.id,
