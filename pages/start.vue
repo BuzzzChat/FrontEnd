@@ -18,12 +18,12 @@
 				</div>
 				<div>
 					<router-link :to="{ name: 'login' }">
-						<input type="submit" value="Zaloguj się" ref="login">
+						<button class="hive" ref="login">Zaloguj się</button>
 					</router-link>
 				</div>
 				<div>
 					<router-link :to="{ name: 'register' }">
-						<input type="submit" value="Utwórz konto">
+						<button class="hive">Utwórz konto</button>
 					</router-link>
 				</div>
 			</div>

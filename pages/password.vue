@@ -1,7 +1,7 @@
 <!-- vim: set tabstop=2 shiftwidth=2 noexpandtab: -->
 <template>
 	<div class="rejestracja">
-		<div class="content">
+		<form v-on:submit.prevent="submit" class="content">
 			<div class="obrazek">
 				<img src="bee.png" width="300" height="300">
 			</div>			
@@ -12,15 +12,13 @@
 				</p>
 			</div>
 			<p>Podaj swoj email</p>
-			<form v-on:submit.prevent="submit">
-				<div>
-					<input type="text" placeholder="email" v-model="input.email">
-				</div>
-				<div>
-					<input type="submit" value="Wyślij nowe hasło">
-				</div>
-			</form>
-		</div>
+			<div>
+				<input type="text" placeholder="email" v-model="input.email">
+			</div>
+			<div>
+				<button class="hive">Wyślij nowe hasło</button>
+			</div>
+		</form>
 	</div>
 </template>
 

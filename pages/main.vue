@@ -110,11 +110,11 @@
 				this.$root.logout()
 			},
 			clear_search: function() {
-				this.search_text = '';
+				this.search_text = ''
 				this.search_results = []
 			},
 			chat: function(chatid, name) {
-				this.chatid = chatid;
+				this.chatid = chatid
 				this.name = name
 			},
 			search: function() {
@@ -164,6 +164,7 @@
 				});
 			},
 			refresh: function() {
+				console.log('Refreshing list...');
 				this.get_waiting();
 				this.get_contacts();
 			}
