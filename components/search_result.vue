@@ -29,7 +29,7 @@
 					console.log('conversation id:' + conversationId);
 					stompClient.subscribe(`/channel/user${this.userid}`, onMessageReceived);
 					stompClient.subscribe(`/channel/${conversationId}`, onMessageReceived);
-					stompClient.send(`/app/chat/${this.$root.authenticated.id}/sendMessage`, {}, JSON.stringify({
+					stompClient.send(`/app/chat/${conversationId}/sendMessage`, {}, JSON.stringify({
 						"senderId": this.$root.authenticated.id,
 						"conversationId": conversationId,
 						"messageType": "pending_request",

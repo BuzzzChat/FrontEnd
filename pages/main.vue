@@ -162,8 +162,9 @@
 				});
 			},
 			refresh: function() {
-				get_waiting()
-				get_contacts()
+				console.log('Refreshing list...')				
+				this.get_waiting()
+				this.get_contacts()
 			}
 		},
 		mounted: function() {

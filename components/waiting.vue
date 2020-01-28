@@ -21,8 +21,7 @@
 				stompClient.send(`/app/chat/${conversationId}/invitation`, {}, JSON.stringify({
 					"senderId": this.$root.authenticated.id,
 					"conversationId": conversationId,
-					"messageType": "accepting_request",
-					"loadingMode": false
+					"messageType": "accepting_request"
 				}));
 				this.callback()
 			},
@@ -32,8 +31,7 @@
 				stompClient.send(`/app/chat/${conversationId}/invitation`, {}, JSON.stringify({
 					"senderId": this.$root.authenticated.id,
 					"conversationId": conversationId,
-					"messageType": "rejecting_request",
-					"loadingMode": false
+					"messageType": "rejecting_request"
 				}));
 				this.callback()
 			}
