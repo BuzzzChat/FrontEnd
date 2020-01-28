@@ -255,7 +255,9 @@ input{
 .avatar {
 	background-color: var(--yellow);
 	color: var(--black);
-	border-radius: 50%;
+	/* border-radius: 50%; */
+	-webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+	clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 	width: var(--avatar-size);
 	height: var(--avatar-size);
 	margin: 10px;
@@ -447,7 +449,6 @@ a {
 
 .przyciski-modal{
 	justify-content: space-evenly;
-	
 }
 .hive {
   border: 0;
@@ -495,4 +496,5 @@ a {
 .nochat p{
 	margin:50px;
 	width: 220px;
+	text-align: center;
 }

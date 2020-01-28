@@ -88,7 +88,7 @@
 			<h1>Witaj!</h1>
 			<div class="nochat-content">
 			<p> Korzystaj ze wszystkich funkcjonalności komunikatora Buzzz! </p>
-			<p> Wysyłaj pliki, zdjęcia i emotki! </p>			
+			<p> Wysyłaj pliki, zdjęcia i emotki! </p>
 			<p>Rozmawiaj ze znajomymi prywatnie, swobodnie, bez limitów! </p>
 			<!-- <p> Zaproś znajomych do prywatnego czatu grupowego! </p> -->
 
