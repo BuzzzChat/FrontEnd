@@ -44,7 +44,7 @@
 			<div class="" v-if="search_results.length > 0 || search_text">
 				<ul>
 					<li><a v-on:click="clear_search">X</a></li>
-					<searchresult v-for="result in search_results" :username="result.user.username" :userid="result.user.id" :is_contact="result.contact"></searchresult>
+					<searchresult v-for="result in search_results" :username="result.user.username" :userid="result.user.id" :is_contact="!! result.contact"></searchresult>
 				</ul>
 			</div>
 			<div class = "listy" v-if="search_results.length < 1 && !search_text">

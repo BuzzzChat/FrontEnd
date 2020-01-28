@@ -1,7 +1,7 @@
 <!-- vim: set tabstop=2 shiftwidth=2 noexpandtab: -->
 <template>
 	<li>
-		{{ username }} <a v-if="is_contact" @click="add">+</a>
+		{{ username }} <a v-if="!is_contact" @click="add">+</a>
 	</li>
 </template>
 
