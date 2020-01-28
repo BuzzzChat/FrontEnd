@@ -1,6 +1,6 @@
 <!-- vim: set tabstop=2 shiftwidth=2 noexpandtab: -->
 <template>
-	<div v-bind="$attrs">
+	<div>
 		<div class="errors" v-if="errors.length">
 			<p v-for="error in errors">
 				{{ error }}

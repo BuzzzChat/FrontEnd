@@ -18,7 +18,7 @@ body{
 	background-color: var(--black);
 	color: var(--white);
 }
-div{
+div, form {
 	display: flex;
 }
 #app {
@@ -95,6 +95,9 @@ div{
 	flex-direction: column;
 	margin: 10px;
 	align-items: center;
+}
+.prawy_start > div + div {
+	margin-top: 0.5em;
 }
 
 .tekst{
@@ -446,6 +449,8 @@ a {
   margin-left: .6em;
   margin-right: .6em;
   position: relative;
+  line-height: 1.2em;
+  min-width: .345em;
 
   background: var(--yellow);
 }
@@ -456,6 +461,7 @@ a {
   width: 0;
   height: 0;
   border: .6em solid transparent; /* half line-height */
+  border-width: .6em .345em;
 }
 .hive:before {
   right: 100%;

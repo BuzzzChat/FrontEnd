@@ -33,18 +33,29 @@
 				</div>
 			</div>
 			<!-- Wyszukiwarka -->
-			<div class = "wyszukiwarka">
+			<form v-on:submit.prevent="search" class="wyszukiwarka">
 				<div class = "wpisywanie">
-					<input type = "text" placeholder="Szukaj...">
+					<input type = "text" placeholder="Szukaj..." v-model="search_text">
 				</div>
 				<div class = "przycisk">
 					<button class = "btn_lewy"><i class="material-icons">search</i></button>
 				</div>
+			</form>
+			<div class="" v-if="search_results.length > 0 || search_text">
+				<ul>
+					<li><a v-on:click="clear_search">X</a></li>
+					<searchresult v-for="result in search_results" :username="result.user.username" :userid="result.user.id" :is_contact="result.contact"></searchresult>
+				</ul>
 			</div>
-			<!-- Znajomi -->
-			<div class = "listy">
+			<div class = "listy" v-if="search_results.length < 1 && !search_text">
+				<!-- Znajomi -->
 				<div class = "znajomi">
 					<a> Znajomi</a>
+					<ul>
+						<li v-for="friend in friends">
+							{{ friend }}
+						</li>
+					</ul>
 				</div>
 				<!-- Czat grupowy -->
 				<div class = "czat_grupowy">
@@ -56,84 +67,17 @@
 				<!-- Zaproszenia -->
 				<div class = "Zaproszenia">
 					<a>Zaproszenia do znajomych</a>
+					<ul>
+						<li v-for="friend in waiting">
+							X:{{ friend.contact_name }}
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
 		<!-- Ekran rozmowy -->
-		<div class = "prawy">
-			<div class = "split2">
-				<!-- Naglowek znajomego -->
-				<div class = "naglowek_rozmowy">
-					<div class = "nazwa_znajomego">
-						<a>Mój znajomy</a>
-					</div>
-					<div class = ikony_znajomego">
-						<div class = "Zmiana">
-							<modal id="btn_zmiana" btn_class="btn_prawy">
-								<template v-slot:button>
-									<i class="material-icons">edit</i>
-								</template>
-
-								<p>Zmiana nazwy</p>
-							</modal>
-						</div>
-						<!-- Blokowanie -->
-						<div class = "blokowanie">
-							<question id="btn_blok" btn_class="btn_prawy" @yes="console.log('TODO: blokowanie usera')">
-								<template v-slot:button>
-									<i class="material-icons">block</i>
-								</template>
-
-								<div>
-									<p>Czy na pewno chcesz zablokować tego użytkownika?</p>
-								</div>
-							</question>
-						</div>
-						<!-- Usuwanie -->
-						<div class = "Usuwanie">
-							<question id="btn_usuw" btn_class="btn_prawy" @yes="console.log('TODO: usuwanie usera')">
-								<template v-slot:button>
-									<i class="material-icons">delete</i>
-								</template>
-
-								<div>
-									<p>Czy na pewno chcesz usunąć tego użytkownika?</p>
-								</div>
-						 </question>
-						</div>
-					</div>
-				</div>
-				<!-- Rozmowa -->
-				<div class="czat">
-					<div class="scrollbox">
-						<!-- przeniesione do JS -->
-						<div class="anchor"></div>
-					</div>
-				</div>
-				<!-- Pisanie wiadomosci, wysylanie plikow, zdjec itp -->
-				<div class = "wiadomosc">
-					<div class = "ikony_wiadomosci">
-						<div class = "plik">
-							<button class = "btn_lewy"><i class="material-icons">insert_drive_file</i></button>
-						</div>
-						<div class = "zdjecie">
-							<button class = "btn_lewy"><i class="material-icons">add_photo_alternate</i></button>
-						</div>
-						<div class = "emoji">
-							<button class = "btn_lewy"><i class="material-icons">insert_emoticon</i></button>
-						</div>
-					</div>
-					<div class = "wpisywanie_wiadomosci">
-						<input id="message_input" type = "text" placeholder = "Napisz wiadomosc...">
-					</div>
-					<div class = "ikony_wiadomosci">
-						<div class = "wyslij">
-							<button class = "btn_lewy"><i class="material-icons">send</i></button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		<discussion v-bind:chatid="chatid">
+		</discussion>
 	</div>
 	</div>
 </template>
@@ -144,10 +88,17 @@
 			'modal': httpVueLoader('../components/modal.vue'),
 			'question': httpVueLoader('../components/question.vue'),
 			'changenick': httpVueLoader('../components/change_nick.vue'),
-			'changepass': httpVueLoader('../components/change_pass.vue')
+			'changepass': httpVueLoader('../components/change_pass.vue'),
+			'discussion': httpVueLoader('../components/discussion.vue'),
+			'searchresult': httpVueLoader('../components/search_result.vue')
 		},
 		data: function() {
 			return {
+				chatid: 0,
+				friends: [],
+				waiting: [],
+				search_results: [],
+				search_text: ''
 			}
 		},
 		computed: {
@@ -158,12 +109,68 @@
 		methods: {
 			logout: function() {
 				this.$root.logout()
+			},
+			clear_search: function() {
+				this.search_text = ''
+				this.search_results = []
+			},
+			search: function() {
+				data = {
+					userId: this.$root.authenticated.id,
+					searchValue: this.search_text
+				}
+				axios.post(
+					this.$root.endpoint + '/management/searchUser',
+					data,
+					this.$root.axiosConfig
+				).then(response => {
+					console.log(response.data);
+					this.search_results = response.data
+				}, error => {
+					console.log('Problem z połączeniem')
+				});
+			},
+			get_contacts: function() {
+				data = {
+					userId: this.$root.authenticated.id
+				}
+				axios.post(
+					this.$root.endpoint + '/users/contactList',
+					data,
+					this.$root.axiosConfig
+				).then(response => {
+					console.log('get_contacts')
+					console.log(response.data)
+					friends = response.data
+				}, error => {
+					console.log('Problem z połączeniem')
+				});
+			},
+			get_waiting: function() {
+				data = {
+					userId: this.$root.authenticated.id
+				}
+				axios.post(
+					this.$root.endpoint + '/users/expectantContactList',
+					data,
+					this.$root.axiosConfig
+				).then(response => {
+					console.log('get_waiting')
+					console.log(response.data)
+					waiting = response.data
+				}, error => {
+					console.log('Problem z połączeniem')
+				});
 			}
 		},
 		mounted: function() {
 			if (!this.$root.authenticated) {
-				this.$router.replace({ name: "start" });
+				this.$router.replace({ name: "start" })
+				return
 			}
+			init(this.$root.authenticated.id)
+			this.get_contacts()
+			this.get_waiting()
 		}
 	}
 </script>

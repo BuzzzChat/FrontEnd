@@ -1,12 +1,11 @@
 <!-- vim: set tabstop=2 shiftwidth=2 noexpandtab: -->
 <template>
 	<div class="rejestracja">
-		<div class="content">
+		<form class="content" v-on:submit.prevent="login">
 			<div class="obrazek">
 				<img src="bee.png" width="300" height="300">
 			</div>
 			<h1>Logowanie</h1>
-			<form v-on:submit.prevent="login">
 				<div class="errors" v-if="errors.length">
 					<p v-for="error in errors">
 						{{ error }}
@@ -21,7 +20,6 @@
 				<div>
 					<input type="submit" value="Zaloguj się">
 				</div>
-			</form>
 			<div>
 				<router-link :to="{ name: 'password' }">Zapomniałem hasła</router-link>
 			</div>
@@ -30,7 +28,7 @@
 					<input type="submit" value="Utwórz konto">
 				</router-link>
 			</div>
-		</div>
+		</form>
 	</div>
 </template>
 
