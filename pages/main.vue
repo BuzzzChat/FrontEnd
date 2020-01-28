@@ -142,8 +142,6 @@
 					data,
 					this.$root.axiosConfig
 				).then(response => {
-					console.log('get_contacts')
-					console.log(response.data)
 					friends = response.data
 				}, error => {
 					console.log('Problem z połączeniem')
@@ -158,8 +156,6 @@
 					data,
 					this.$root.axiosConfig
 				).then(response => {
-					console.log('get_waiting')
-					console.log(response.data)
 					this.waiting = response.data
 				}, error => {
 					console.log('Problem z połączeniem')
@@ -176,8 +172,7 @@
 				return
 			}
 			init(this.$root.authenticated.id)
-			this.get_contacts()
-			this.get_waiting()
+			this.refresh()
 		}
 	}
 </script>
