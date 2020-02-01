@@ -1,7 +1,7 @@
 <!-- vim: set tabstop=2 shiftwidth=2 noexpandtab: -->
 <template>
 	<div class="rejestracja">
-		<form class="content" v-on:submit.prevent="register" ref="form">
+		<form class="content" v-on:submit.prevent="registerUser" ref="form">
 			<h1> Rejestracja </h1>
 			<div class="errors" v-if="errors.length">
 				<p v-for="error in errors">
@@ -33,6 +33,7 @@
 	module.exports = {
 		data: function() {
 			return {
+				username: '',
 				errors: [],
 				input: {
 					username: '',
@@ -48,9 +49,9 @@
 			submitter: function() {
 				this.$refs.form.submit()
 			},
-			register: function(event) {
-				this.errors = []
-				if (this.input.password != this.input.password2) {
+			registerUser: function(event) {
+				this.errors = [];
+				if (this.input.password !== this.input.password2) {
 					this.errors.push('Wprowadzono 2 różne hasła')
 				}
 				if (!this.input.age) {
@@ -60,12 +61,13 @@
 					this.errors.push('Przeczytaj i zaakceptuj regulamin')
 				}
 				if (this.errors.length)
-					return
+					return;
 				data = {
 					username: this.input.username,
 					email: this.input.email,
 					password: this.input.password
-				}
+				};
+				username = this.input.username;
 				axios.post(
 					this.$root.endpoint + '/management/registerUser',
 					data,
@@ -73,7 +75,7 @@
 				).then(response => {
 					console.log(response.data);
 					if (response.data.errorCode === 'correct') {
-						this.$emit('authenticated', response.data.user)
+						this.$emit('authenticated', response.data.user);
 						this.$router.replace({ name: 'main' })
 					} else if (response.data.errorCode === 'occupied_username') {
 						this.errors.push('Nazwa użytkownika jest już zajęta')

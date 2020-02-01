@@ -34,10 +34,10 @@
 		},
 		methods: {
 			submit: function(event) {
-				this.errors = []
+				this.errors = [];
 				data = {
 					email: this.input.email
-				}
+				};
 				axios.post(
 					this.$root.endpoint + '/management/remindPassword',
 					data,

@@ -1,320 +1,320 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--	<head>-->
+<!--		&lt;!&ndash; Required meta tags &ndash;&gt;-->
+<!--		<meta charset="utf-8">-->
+<!--		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
 
-		<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow|Material+Icons&display=swap" rel="stylesheet">
-		<link href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" rel="stylesheet">
-		<link href="style.css" rel="stylesheet">
+<!--		<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow|Material+Icons&display=swap" rel="stylesheet">-->
+<!--		<link href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" rel="stylesheet">-->
+<!--		<link href="style.css" rel="stylesheet">-->
 
-		<title>BUZZZ</title>
-	</head>
+<!--		<title>BUZZZ</title>-->
+<!--	</head>-->
 
- <!-- BODY -->
- <body>
-	<div class = "split">
-		<!-- Lewa podstrona-znajomi, wyszukiwarka, ustawienia profilu i wylogowanie -->
-		<div class = "lewy">
-			<div class = "naglowek">
-				<div class = "ikony_uzytkownika">
-					<button id="btn_wyloguj" class = "btn_lewy">
-						<i class="material-icons">&#xe879;</i>
-					</button>
-				</div>
-				<div class="user">
-					<div class="avatar">
-						<span>Ja</span>
-					</div>
-				</div>
-				<div class = "ikony_uzytkownika">
-					<!-- Edycja profilu -->
-					<button id = "btn_edycja" class = "btn_lewy">
-						<i class="material-icons">&#xe8b8;</i>
-					</button>
-				</div>
-			</div>
-			<!-- Wyszukiwarka -->
-			<div class = "wyszukiwarka">
-				<div class = "wpisywanie">
-					<input type = "text" placeholder="Szukaj...">
-				</div>
-				<div class = "przycisk">
-					<button class = "btn_lewy"><i class="material-icons">search</i></button>
-				</div>
-			</div>
-			<!-- Znajomi -->
-			<div class = "listy">
-				<div class = "znajomi">
-					<a> Znajomi </a>
-				</div>
-				<!-- Czat grupowy -->
-				<div class = "czat_grupowy">
-					<div class = "Grupowy_czat">
-						<a> Czat grupowy </a>
-						<a> <i class="material-icons icon-text button">add</i></a>
-					</div>
-				</div>
-				<!-- Zaproszenia -->
-				<div class = "Zaproszenia">
-					<a> Zaproszenia do znajomych </a>
-				</div>
-			</div>
-		</div>
-		<!-- Ekran rozmowy -->
-		<div class = "prawy">
-			<!-- MODALE -->
-			<!-- Edycja profilu modal-->
-			<div id="Edycja" class="modal">
-				<div class="modal-content">
-					<span class="close">&times;</span>
-        	<div class="gornyPasek">
-						<p> Edycja profilu </p>
-        	</div>
-        	<div class="pole">  
-            <div class = "pole-lewe">
-                <input type="text" placeholder="Nowy nick">
-                <input type="submit" value="Zmień nick">
-           </div>
-           <div class = "pole-prawe">
-                <input type="password" placeholder="Bieżące hasło">
-                <input type="password" placeholder="Nowe hasło">
-                <input type="password" placeholder="Powtórz nowe hasło">
-                <input type="submit" value="Zmień hasło">
-            </div>
-        </div>
-				</div>
-			</div>
-			<div id="Zmiana" class="modal">
-				<div class="modal-content">
-					<span class="close">&times;</span>
-					<p>Zmiana nazwy</p>
-				</div>
-			</div>
-			<div id="Blokowanie" class="modal">
-				<div class="modal-content">
-					<span class="close">&times;</span>
-						<div class = "modal-srodek">							
-							<div>
-								<p>Czy na pewno chcesz zablokować tego użytkownika?</p>
-							</div>
-							<div class = "przyciski-modal">
-								<div>
-									<button class = "hive">TAK </button>
-								</div>
-								<div>
-									<button class = "hive">NIE</button>
-								</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="Usuwanie" class="modal">
-				<div class="modal-content">
-					<span class="close">&times;</span>
-							<div class = "modal-srodek">							
-							<div>
-								<p>Czy na pewno chcesz usunąć tego użytkownika?</p>
-							</div>
-							<div class = "przyciski-modal">
-								<div>
-									<button>TAK </button>
-								</div>
-								<div>
-									<button>NIE</button>
-								</div>
-						</div>
-					</div>
-					</div>
-				</div>
-			<!-- KONIEC MODALI -->
-			<div class = "split2">
-				<!-- Naglowek znajomego -->
-				<div class = "naglowek_rozmowy">
-					<div class = "nazwa_znajomego">
-						<a> Mój znajomy</a>
-					</div>
-					<div class = ikony_znajomego">
-						<div class = "Zmiana">
-							<button id = "btn_zmiana" class = "btn_prawy">
-								<i class="material-icons">edit</i>
-							</button>
-						</div>
-						<!-- Blokowanie -->
-						<div class = "blokowanie">
-							<button id = "btn_blok" class = "btn_prawy">
-								<i class="material-icons">block</i>
-							</button>
-						</div>
-						<!-- Usuwanie -->
-						<div class = "Usuwanie">
-							<button id = "btn_usuw" class = "btn_prawy">
-								<i class="material-icons">delete</i>
-							</button>
-						</div>
-					</div>
-				</div>
-				<!-- Rozmowa -->
-				<div class = "czat">
-					<div class="scrollbox">
-						<!-- przeniesione do JS -->
-						<div class="anchor"></div>
-					</div>
-				</div>
-				<!-- Pisanie wiadomosci, wysylanie plikow, zdjec itp -->
-				<div class = "wiadomosc">
-					<div class = "ikony_wiadomosci">
-						<div class = "plik">
-							<button class = "btn_lewy"><i class="material-icons">insert_drive_file</i></button>
-						</div>
-						<div class = "zdjecie">
-							<button class = "btn_lewy"><i class="material-icons">add_photo_alternate</i></button>
-						</div>
-						<div class = "emoji">
-							<button class = "btn_lewy"><i class="material-icons">insert_emoticon</i></button>
-						</div>
-					</div>
-					<div class = "wpisywanie_wiadomosci">
-						<input id="message_input" type = "text" placeholder = "Napisz wiadomosc...">
-					</div>
-					<div class = "ikony_wiadomosci">
-						<div class = "wyslij">
-						<button class = "btn_lewy"><i class="material-icons">send</i></button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<!-- &lt;!&ndash; BODY &ndash;&gt;-->
+<!-- <body>-->
+<!--	<div class = "split">-->
+<!--		&lt;!&ndash; Lewa podstrona-znajomi, wyszukiwarka, ustawienia profilu i wylogowanie &ndash;&gt;-->
+<!--		<div class = "lewy">-->
+<!--			<div class = "naglowek">-->
+<!--				<div class = "ikony_uzytkownika">-->
+<!--					<button id="btn_wyloguj" class = "btn_lewy">-->
+<!--						<i class="material-icons">&#xe879;</i>-->
+<!--					</button>-->
+<!--				</div>-->
+<!--				<div class="user">-->
+<!--					<div class="avatar">-->
+<!--						<span>Ja</span>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--				<div class = "ikony_uzytkownika">-->
+<!--					&lt;!&ndash; Edycja profilu &ndash;&gt;-->
+<!--					<button id = "btn_edycja" class = "btn_lewy">-->
+<!--						<i class="material-icons">&#xe8b8;</i>-->
+<!--					</button>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			&lt;!&ndash; Wyszukiwarka &ndash;&gt;-->
+<!--			<div class = "wyszukiwarka">-->
+<!--				<div class = "wpisywanie">-->
+<!--					<input type = "text" placeholder="Szukaj...">-->
+<!--				</div>-->
+<!--				<div class = "przycisk">-->
+<!--					<button class = "btn_lewy"><i class="material-icons">search</i></button>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			&lt;!&ndash; Znajomi &ndash;&gt;-->
+<!--			<div class = "listy">-->
+<!--				<div class = "znajomi">-->
+<!--					<a> Znajomi </a>-->
+<!--				</div>-->
+<!--				&lt;!&ndash; Czat grupowy &ndash;&gt;-->
+<!--				<div class = "czat_grupowy">-->
+<!--					<div class = "Grupowy_czat">-->
+<!--						<a> Czat grupowy </a>-->
+<!--						<a> <i class="material-icons icon-text button">add</i></a>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--				&lt;!&ndash; Zaproszenia &ndash;&gt;-->
+<!--				<div class = "Zaproszenia">-->
+<!--					<a> Zaproszenia do znajomych </a>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--		&lt;!&ndash; Ekran rozmowy &ndash;&gt;-->
+<!--		<div class = "prawy">-->
+<!--			&lt;!&ndash; MODALE &ndash;&gt;-->
+<!--			&lt;!&ndash; Edycja profilu modal&ndash;&gt;-->
+<!--			<div id="Edycja" class="modal">-->
+<!--				<div class="modal-content">-->
+<!--					<span class="close">&times;</span>-->
+<!--        	<div class="gornyPasek">-->
+<!--						<p> Edycja profilu </p>-->
+<!--        	</div>-->
+<!--        	<div class="pole">-->
+<!--            <div class = "pole-lewe">-->
+<!--                <input type="text" placeholder="Nowy nick">-->
+<!--                <input type="submit" value="Zmień nick">-->
+<!--           </div>-->
+<!--           <div class = "pole-prawe">-->
+<!--                <input type="password" placeholder="Bieżące hasło">-->
+<!--                <input type="password" placeholder="Nowe hasło">-->
+<!--                <input type="password" placeholder="Powtórz nowe hasło">-->
+<!--                <input type="submit" value="Zmień hasło">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div id="Zmiana" class="modal">-->
+<!--				<div class="modal-content">-->
+<!--					<span class="close">&times;</span>-->
+<!--					<p>Zmiana nazwy</p>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div id="Blokowanie" class="modal">-->
+<!--				<div class="modal-content">-->
+<!--					<span class="close">&times;</span>-->
+<!--						<div class = "modal-srodek">-->
+<!--							<div>-->
+<!--								<p>Czy na pewno chcesz zablokować tego użytkownika?</p>-->
+<!--							</div>-->
+<!--							<div class = "przyciski-modal">-->
+<!--								<div>-->
+<!--									<button class = "hive">TAK </button>-->
+<!--								</div>-->
+<!--								<div>-->
+<!--									<button class = "hive">NIE</button>-->
+<!--								</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--			<div id="Usuwanie" class="modal">-->
+<!--				<div class="modal-content">-->
+<!--					<span class="close">&times;</span>-->
+<!--							<div class = "modal-srodek">-->
+<!--							<div>-->
+<!--								<p>Czy na pewno chcesz usunąć tego użytkownika?</p>-->
+<!--							</div>-->
+<!--							<div class = "przyciski-modal">-->
+<!--								<div>-->
+<!--									<button>TAK </button>-->
+<!--								</div>-->
+<!--								<div>-->
+<!--									<button>NIE</button>-->
+<!--								</div>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			&lt;!&ndash; KONIEC MODALI &ndash;&gt;-->
+<!--			<div class = "split2">-->
+<!--				&lt;!&ndash; Naglowek znajomego &ndash;&gt;-->
+<!--				<div class = "naglowek_rozmowy">-->
+<!--					<div class = "nazwa_znajomego">-->
+<!--						<a> Mój znajomy</a>-->
+<!--					</div>-->
+<!--					<div class = ikony_znajomego">-->
+<!--						<div class = "Zmiana">-->
+<!--							<button id = "btn_zmiana" class = "btn_prawy">-->
+<!--								<i class="material-icons">edit</i>-->
+<!--							</button>-->
+<!--						</div>-->
+<!--						&lt;!&ndash; Blokowanie &ndash;&gt;-->
+<!--						<div class = "blokowanie">-->
+<!--							<button id = "btn_blok" class = "btn_prawy">-->
+<!--								<i class="material-icons">block</i>-->
+<!--							</button>-->
+<!--						</div>-->
+<!--						&lt;!&ndash; Usuwanie &ndash;&gt;-->
+<!--						<div class = "Usuwanie">-->
+<!--							<button id = "btn_usuw" class = "btn_prawy">-->
+<!--								<i class="material-icons">delete</i>-->
+<!--							</button>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--				&lt;!&ndash; Rozmowa &ndash;&gt;-->
+<!--				<div class = "czat">-->
+<!--					<div class="scrollbox">-->
+<!--						&lt;!&ndash; przeniesione do JS &ndash;&gt;-->
+<!--						<div class="anchor"></div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--				&lt;!&ndash; Pisanie wiadomosci, wysylanie plikow, zdjec itp &ndash;&gt;-->
+<!--				<div class = "wiadomosc">-->
+<!--					<div class = "ikony_wiadomosci">-->
+<!--						<div class = "plik">-->
+<!--							<button class = "btn_lewy"><i class="material-icons">insert_drive_file</i></button>-->
+<!--						</div>-->
+<!--						<div class = "zdjecie">-->
+<!--							<button class = "btn_lewy"><i class="material-icons">add_photo_alternate</i></button>-->
+<!--						</div>-->
+<!--						<div class = "emoji">-->
+<!--							<button class = "btn_lewy"><i class="material-icons">insert_emoticon</i></button>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--					<div class = "wpisywanie_wiadomosci">-->
+<!--						<input id="message_input" type = "text" placeholder = "Napisz wiadomosc...">-->
+<!--					</div>-->
+<!--					<div class = "ikony_wiadomosci">-->
+<!--						<div class = "wyslij">-->
+<!--						<button class = "btn_lewy"><i class="material-icons">send</i></button>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
 
-	<script>
-// wylogowanie
-document.getElementById("btn_wyloguj").addEventListener('click', event => {
-	window.location = 'ekranStart.html'
-});
-// Edycja profilu
-var modal_edycja = document.getElementById("Edycja");
-var btn_edycja = document.getElementById("btn_edycja");
-let span_edycja = document.querySelector("#Edycja .close");
-btn_edycja.onclick = function() {
-  modal_edycja.style.display = "block";
-}
-span_edycja.onclick = function() {
-  modal_edycja.style.display = "none";
-}
-window.onclick = function(event) {
-  if (event.target == modal_edycja) {
-    modal_edycja.style.display = "none";
-  }
-}
+<!--	<script>-->
+<!--// wylogowanie-->
+<!--document.getElementById("btn_wyloguj").addEventListener('click', event => {-->
+<!--	window.location = 'ekranStart.html'-->
+<!--});-->
+<!--// Edycja profilu-->
+<!--var modal_edycja = document.getElementById("Edycja");-->
+<!--var btn_edycja = document.getElementById("btn_edycja");-->
+<!--let span_edycja = document.querySelector("#Edycja .close");-->
+<!--btn_edycja.onclick = function() {-->
+<!--  modal_edycja.style.display = "block";-->
+<!--}-->
+<!--span_edycja.onclick = function() {-->
+<!--  modal_edycja.style.display = "none";-->
+<!--}-->
+<!--window.onclick = function(event) {-->
+<!--  if (event.target == modal_edycja) {-->
+<!--    modal_edycja.style.display = "none";-->
+<!--  }-->
+<!--}-->
 
-// Zmiana nazwy
-var modal_zmiana = document.getElementById("Zmiana");
-var btn_zmiana = document.getElementById("btn_zmiana");
-let span_zmiana = document.querySelector("#Zmiana .close");
-btn_zmiana.onclick = function() {
-  modal_zmiana.style.display = "block";
-}
-span_zmiana.onclick = function() {
-  modal_zmiana.style.display = "none";
-}
-window.onclick = function(event) {
-  if (event.target == modal_zmiana) {
-    modal_zmiana.style.display = "none";
-  }
-}
+<!--// Zmiana nazwy-->
+<!--var modal_zmiana = document.getElementById("Zmiana");-->
+<!--var btn_zmiana = document.getElementById("btn_zmiana");-->
+<!--let span_zmiana = document.querySelector("#Zmiana .close");-->
+<!--btn_zmiana.onclick = function() {-->
+<!--  modal_zmiana.style.display = "block";-->
+<!--}-->
+<!--span_zmiana.onclick = function() {-->
+<!--  modal_zmiana.style.display = "none";-->
+<!--}-->
+<!--window.onclick = function(event) {-->
+<!--  if (event.target == modal_zmiana) {-->
+<!--    modal_zmiana.style.display = "none";-->
+<!--  }-->
+<!--}-->
 
-//blokowanie
-var modal_blok = document.getElementById("Blokowanie");
-var btn_blok = document.getElementById("btn_blok");
-let span_blok = document.querySelector("#Blokowanie .close");
-btn_blok.onclick = function() {
-  modal_blok.style.display = "block";
-}
-span_blok.onclick = function() {
-  modal_blok.style.display = "none";
-}
-window.onclick = function(event) {
-  if (event.target == modal_blok) {
-    modal_blok.style.display = "none";
-  }
-}
+<!--//blokowanie-->
+<!--var modal_blok = document.getElementById("Blokowanie");-->
+<!--var btn_blok = document.getElementById("btn_blok");-->
+<!--let span_blok = document.querySelector("#Blokowanie .close");-->
+<!--btn_blok.onclick = function() {-->
+<!--  modal_blok.style.display = "block";-->
+<!--}-->
+<!--span_blok.onclick = function() {-->
+<!--  modal_blok.style.display = "none";-->
+<!--}-->
+<!--window.onclick = function(event) {-->
+<!--  if (event.target == modal_blok) {-->
+<!--    modal_blok.style.display = "none";-->
+<!--  }-->
+<!--}-->
 
-//Usuwanie
-var modal_usuw = document.getElementById("Usuwanie");
-var btn_usuw = document.getElementById("btn_usuw");
-let span_usuw = document.querySelector("#Usuwanie .close");
-btn_usuw.onclick = function() {
-  modal_usuw.style.display = "block";
-}
-span_usuw.onclick = function() {
-  modal_usuw.style.display = "none";
-}
-window.onclick = function(event) {
-  if (event.target == modal_usuw) {
-    modal_usuw.style.display = "none";
-  }
-}
-	</script>
-	<script>
-		let messages = [
-			[0, 'M', 'Cześć! Co tam u Ciebie słychać?'],
-			[1, 'J', 'Hej! Wszystko dobrze. Strasznie fajny ten czat!'],
-			[0, 'M', 'Nooo. Taki nieśledzący.'],
-			[1, 'J', 'I jaki ma przyjazny interfejs!'],
-			[0, 'M', 'Mi też się bardzo podoba.'],
-			[1, 'J', 'uśmiechnij się do screenshota']
-		];
+<!--//Usuwanie-->
+<!--var modal_usuw = document.getElementById("Usuwanie");-->
+<!--var btn_usuw = document.getElementById("btn_usuw");-->
+<!--let span_usuw = document.querySelector("#Usuwanie .close");-->
+<!--btn_usuw.onclick = function() {-->
+<!--  modal_usuw.style.display = "block";-->
+<!--}-->
+<!--span_usuw.onclick = function() {-->
+<!--  modal_usuw.style.display = "none";-->
+<!--}-->
+<!--window.onclick = function(event) {-->
+<!--  if (event.target == modal_usuw) {-->
+<!--    modal_usuw.style.display = "none";-->
+<!--  }-->
+<!--}-->
+<!--	</script>-->
+<!--	<script>-->
+<!--		let messages = [-->
+<!--			[0, 'M', 'Cześć! Co tam u Ciebie słychać?'],-->
+<!--			[1, 'J', 'Hej! Wszystko dobrze. Strasznie fajny ten czat!'],-->
+<!--			[0, 'M', 'Nooo. Taki nieśledzący.'],-->
+<!--			[1, 'J', 'I jaki ma przyjazny interfejs!'],-->
+<!--			[0, 'M', 'Mi też się bardzo podoba.'],-->
+<!--			[1, 'J', 'uśmiechnij się do screenshota']-->
+<!--		];-->
 
-		function wiadomosc(czy_wychodzaca, inicjal, tresc) {
-			let scroller = document.querySelector('.czat .scrollbox');
-			let anchor = document.querySelector('.czat .scrollbox .anchor');
+<!--		function wiadomosc(czy_wychodzaca, inicjal, tresc) {-->
+<!--			let scroller = document.querySelector('.czat .scrollbox');-->
+<!--			let anchor = document.querySelector('.czat .scrollbox .anchor');-->
 
-			let klasa = czy_wychodzaca ? 'wiadomosc_moja' : 'wiadomosc_znajomego';
-			let div = document.createElement('div');
-			div.innerHTML = `<div class = "${klasa}">
-										<div class = "avatar">
-												<span>${inicjal}</span>
-										</div>
-										<div class = "dymek">
-												<div class = "dymek_znajomego">
-														<p>${tresc}</p>
-												</div>
-										</div>
-								</div>`;
-			scroller.insertBefore(div.firstChild, anchor);
-		}
+<!--			let klasa = czy_wychodzaca ? 'wiadomosc_moja' : 'wiadomosc_znajomego';-->
+<!--			let div = document.createElement('div');-->
+<!--			div.innerHTML = `<div class = "${klasa}">-->
+<!--										<div class = "avatar">-->
+<!--												<span>${inicjal}</span>-->
+<!--										</div>-->
+<!--										<div class = "dymek">-->
+<!--												<div class = "dymek_znajomego">-->
+<!--														<p>${tresc}</p>-->
+<!--												</div>-->
+<!--										</div>-->
+<!--								</div>`;-->
+<!--			scroller.insertBefore(div.firstChild, anchor);-->
+<!--		}-->
 
-		function dodaj_wiadomosc() {
-			let [czy_moja, inicjal, tresc] = messages[0];
-			wiadomosc(czy_moja, inicjal, tresc);
-			messages.shift();
-			if (messages.length) {
-				setTimeout(dodaj_wiadomosc, 1000);
-			}
-		}
+<!--		function dodaj_wiadomosc() {-->
+<!--			let [czy_moja, inicjal, tresc] = messages[0];-->
+<!--			wiadomosc(czy_moja, inicjal, tresc);-->
+<!--			messages.shift();-->
+<!--			if (messages.length) {-->
+<!--				setTimeout(dodaj_wiadomosc, 1000);-->
+<!--			}-->
+<!--		}-->
 
-		setTimeout(dodaj_wiadomosc, 1000);
-		setTimeout(function() {
-			wiadomosc(0, 'M', 'Co ty do mnie piszesz?');
-		}, 20000);
+<!--		setTimeout(dodaj_wiadomosc, 1000);-->
+<!--		setTimeout(function() {-->
+<!--			wiadomosc(0, 'M', 'Co ty do mnie piszesz?');-->
+<!--		}, 20000);-->
 
-		document.querySelector('.wyslij .btn_lewy').addEventListener('click', event => {
-			let input = document.getElementById('message_input');
-			if (msg = input.value.trim()) {
-				setTimeout(wiadomosc, Math.random() * 1000 + 200, 1, 'J', msg);
-				input.value = '';
-				document.querySelector('.czat .scrollbox .anchor').scrollIntoView(true);
-			}
-		});
-		document.getElementById('message_input').addEventListener('keydown', event => {
-			if (event.code == 'Enter' || event.code == 'NumpadEnter') {
-				document.querySelector('.wyslij .btn_lewy').click();
-			}
-		});
+<!--		document.querySelector('.wyslij .btn_lewy').addEventListener('click', event => {-->
+<!--			let input = document.getElementById('message_input');-->
+<!--			if (msg = input.value.trim()) {-->
+<!--				setTimeout(wiadomosc, Math.random() * 1000 + 200, 1, 'J', msg);-->
+<!--				input.value = '';-->
+<!--				document.querySelector('.czat .scrollbox .anchor').scrollIntoView(true);-->
+<!--			}-->
+<!--		});-->
+<!--		document.getElementById('message_input').addEventListener('keydown', event => {-->
+<!--			if (event.code == 'Enter' || event.code == 'NumpadEnter') {-->
+<!--				document.querySelector('.wyslij .btn_lewy').click();-->
+<!--			}-->
+<!--		});-->
 
-	</script>
-	<script src="live.js"></script>
-	</body>
-</html>
+<!--	</script>-->
+<!--	<script src="live.js"></script>-->
+<!--	</body>-->
+<!--</html>-->

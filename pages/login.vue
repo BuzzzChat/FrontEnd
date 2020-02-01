@@ -45,21 +45,23 @@
 		},
 		methods: {
 			login: function(event) {
-				this.errors = []
+				this.errors = [];
 				data = {
 					email: this.input.email,
 					password: this.input.password
-				}
+				};
+
 				axios.post(
 					this.$root.endpoint + '/management/loginUser',
 					data,
 					this.$root.axiosConfig
 				).then(response => {
+					username = response.data.username;
 					console.log(response.data);
-					if (response.data.errorCode != 'correct') {
+					if (response.data.errorCode !== 'correct') {
 						this.errors.push('Podano niepoprawne dane logowania')
 					} else {
-						this.$emit('authenticated', response.data.user)
+						this.$emit('authenticated', response.data.user);
 						this.$router.replace({ name: 'main' })
 					}
 				}, error => {

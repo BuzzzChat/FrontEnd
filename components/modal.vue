@@ -6,16 +6,16 @@
 				TODO
 			</slot>
 		</button>
-		<div class="modal" v-if="showModal">
-			<div class="modal-content">
-				<span class="close" @click="showModal = false">&times;</span>
-				<div class="modal-srodek">
-					<slot>
-					Error
-					</slot>
-				</div>
-			</div>
-		</div>
+<!--		<div class="modal" v-if="showModal">-->
+<!--			<div class="modal-content">-->
+<!--				<span class="close" @click="showModal = false">&times;</span>-->
+<!--				<div class="modal-srodek">-->
+<!--					<slot>-->
+<!--					Error-->
+<!--					</slot>-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</div>-->
 	</div>
 </template>
 

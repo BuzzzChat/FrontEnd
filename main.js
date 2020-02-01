@@ -1,3 +1,5 @@
+const address = 'http://147.135.210.97:81';
+
 const router = new VueRouter({
 	routes: [
 		{
@@ -35,13 +37,14 @@ const router = new VueRouter({
 			redirect: { name: 'start' }
 		}
 	]
-})
+});
 
 const app = new Vue({
 	router,
+	address,
 	data: function() {
 		return {
-			endpoint: 'http://147.135.210.97:81',
+			endpoint: address,
 			axiosConfig: {
 				headers: {
 					'Content-Type': 'application/json;charset=UTF-8',
@@ -55,26 +58,26 @@ const app = new Vue({
 	},
 	methods: {
 		setAuthenticated(status) {
-			console.log('authenticated:')
-			console.log(status)
-			this.authenticated = status
+			console.log('authenticated:');
+			console.log(status);
+			this.authenticated = status;
 			if (status && status.username)
-				this.initial = status.username.charAt(0)
+				this.initial = status.username.charAt(0);
 			else
 				this.initial = 'Ja'
 		},
 		setUsername(value) {
-			console.log('username:')
-			console.log(value)
+			console.log('username:');
+			console.log(value);
 			if (this.authenticated) {
-				this.authenticated.username = value
+				this.authenticated.username = value;
 				this.initial = value.charAt(0)
 			}
 		},
 		logout() {
-			this.setAuthenticated(false)
-			this.$router.replace({ name: 'logout' })
+			this.setAuthenticated(false);
+			this.$router.replace({ name: 'logout' });
 			console.log('logout')
 		}
 	}
-}).$mount('#app')
+}).$mount('#app');

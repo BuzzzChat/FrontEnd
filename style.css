@@ -33,7 +33,7 @@ div, form {
 
 .split{
 	flex-direction: row;
-	height: 100vh;
+	height: 99.4vh;
 }
 
 .split_start{
@@ -122,7 +122,7 @@ p{
 
 .prawy{
 	flex-grow: 2;
-	background-color: var(--black);
+	background-color: #181818;
 }
 
 .listy{
@@ -285,7 +285,7 @@ input{
 .czat{
 	height: 100%;
 	flex-direction: column;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 .czat .scrollbox {
@@ -294,6 +294,7 @@ input{
 	flex-direction: column;
 	/* visually remove anchor */
 	margin-bottom: -1px;
+	overflow-y: scroll;
 }
 
 .czat .scrollbox > :first-child {

@@ -23,11 +23,11 @@
 		},
 		methods: {
 			change: function(event) {
-				this.errors = []
+				this.errors = [];
 				data = {
 					userId: this.$root.authenticated.id,
 					username: this.input.username,
-				}
+				};
 				axios.post(
 					this.$root.endpoint + '/management/changeUsername',
 					data,
@@ -35,7 +35,7 @@
 				).then(response => {
 					console.log(response.data);
 					if (response.data.errorCode === 'correct') {
-						this.errors.push('Zmieniono nazwę użytkownika')
+						this.errors.push('Zmieniono nazwę użytkownika');
 						this.$root.setUsername(response.data.user.username)
 					} else if (response.data.errorCode === 'occupied_username') {
 						this.errors.push('Nazwa użytkownika jest już zajęta')

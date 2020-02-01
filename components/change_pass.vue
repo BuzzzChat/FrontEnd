@@ -27,8 +27,8 @@
 		},
 		methods: {
 			change: function(event) {
-				this.errors = []
-				if (this.input.password != this.input.password2) {
+				this.errors = [];
+				if (this.input.password !== this.input.password2) {
 					this.errors.push('Podano różne hasła')
 					return
 				}

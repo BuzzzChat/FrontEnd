@@ -27,9 +27,7 @@
 
 					let conversationId = response.data.conversationId;
 					console.log('conversation id:' + conversationId);
-					// stompClient.subscribe(`/channel/user${this.userid}`, onMessageReceived);
-					stompClient.subscribe(`/channel/${conversationId}`, onMessageReceived);
-					let privateChannel = 'user' + this.$root.authenticated.id;
+					let privateChannel = 'user' + this.userid;
 					stompClient.send(`/app/chat/${privateChannel}/sendMessage`, {}, JSON.stringify({
 						"senderId": this.$root.authenticated.id,
 						"conversationId": conversationId,
