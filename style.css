@@ -12,19 +12,28 @@
 
 body{
 	font-family: 'PT Sans Narrow', sans-serif;
-	font-size: 150%;
+	font-size: 16pt;
 	padding: 0;
 	margin: 0;
 	background-color: var(--black);
 	color: var(--white);
 }
-div{
+div, form {
 	display: flex;
+}
+#app {
+	display: block;
+}
+.content {
+	width: 100%;
+}
+.zaproszenia, .czat_grupowy, .znajomi {
+	flex-direction: column;
 }
 
 .split{
 	flex-direction: row;
-	height: 100vh;
+	height: 99.4vh;
 }
 
 .split_start{
@@ -34,14 +43,19 @@ div{
 .start{
 	margin: 4em;
 }
- .rejestracja .content div{
-		margin-bottom: 0.5em;
-		justify-content: center;
-	}
 
-	.rejestracja{
-		margin: 4em;
-	}
+.errors {
+	display: block;
+}
+
+.rejestracja .content div{
+	margin-bottom: 0.5em;
+	justify-content: center;
+}
+
+.rejestracja{
+	margin: 4em;
+}
 
 .rejestracja input {
 	margin: 0 auto;
@@ -56,7 +70,10 @@ div{
 .rejestracja .content img{
 	margin: 0 auto;
 }
+
 .content{
+	width: 20em;
+	margin: 0 auto;
 	font-size: 1em;
 	align-content: center;
 	flex-direction: column;
@@ -64,6 +81,7 @@ div{
 	text-align: center;
 	display: block;
 }
+
 .content a{
 	font-size: 0.65em;
 	color: var(--white); 
@@ -80,6 +98,9 @@ div{
 	flex-direction: column;
 	margin: 10px;
 	align-items: center;
+}
+.prawy_start > div + div {
+	margin-top: 0.5em;
 }
 
 .tekst{
@@ -101,7 +122,7 @@ p{
 
 .prawy{
 	flex-grow: 2;
-	background-color: var(--black);
+	background-color: #181818;
 }
 
 .listy{
@@ -147,7 +168,7 @@ p{
 
 .wyszukiwarka{
 	flex-direction: row;
-	margin: 0.5em 0.5em;
+	margin: 0.5em 0 0.5em 0.5em;
 }
 
 h1{
@@ -234,7 +255,9 @@ input{
 .avatar {
 	background-color: var(--yellow);
 	color: var(--black);
-	border-radius: 50%;
+	/* border-radius: 50%; */
+	-webkit-clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+	clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 	width: var(--avatar-size);
 	height: var(--avatar-size);
 	margin: 10px;
@@ -262,7 +285,7 @@ input{
 .czat{
 	height: 100%;
 	flex-direction: column;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 .czat .scrollbox {
@@ -271,6 +294,7 @@ input{
 	flex-direction: column;
 	/* visually remove anchor */
 	margin-bottom: -1px;
+	overflow-y: scroll;
 }
 
 .czat .scrollbox > :first-child {
@@ -338,6 +362,9 @@ button{
 	cursor: pointer;
 	font-size: 1.05em;
 }
+.btn_lewy + .btn_lewy {
+	margin-left: -25px;
+}
 
 .btn_prawy{
 	background-color: var(--yellow);
@@ -356,10 +383,9 @@ a {
 }
 /* The Modal (background) */
 .modal {
-	display: none; /* Hidden by default */
+	display: block;
 	position: fixed; /* Stay in place */
 	z-index: 1; /* Sit on top */
-	padding-top: 100px; /* Location of the box */
 	left: 0;
 	top: 0;
 	width: 100%; /* Full width */
@@ -388,14 +414,10 @@ a {
 	margin: 20px;
 	flex-direction: row;
 }
-.pole-lewe {
+.pole > * {
 	margin: 10px;
 	flex-direction: column;
-}
-
-.pole-prawe {
-	margin: 10px;
-	flex-direction: column;
+	width: 15em;
 }
 
 .modal-srodek {
@@ -403,6 +425,10 @@ a {
 	padding: 20px;
 	justify-content: space-around;
 	flex-direction: column;
+}
+
+.modal-srodek > div + div {
+	margin-top: 1em;
 }
 
 /* The Close Button */
@@ -424,11 +450,14 @@ a {
 
 .przyciski-modal{
 	justify-content: space-evenly;
-	
 }
 .hive {
   border: 0;
+  margin-left: .6em;
+  margin-right: .6em;
   position: relative;
+  line-height: 1.2em;
+  min-width: .345em;
 
   background: var(--yellow);
 }
@@ -439,6 +468,7 @@ a {
   width: 0;
   height: 0;
   border: .6em solid transparent; /* half line-height */
+  border-width: .6em .345em;
 }
 .hive:before {
   right: 100%;
@@ -447,4 +477,25 @@ a {
 .hive:after {
   left: 100%;
   border-left-color: var(--yellow);
+}
+
+.nochat{
+	padding: 6em;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+}
+.nochat h1{
+	width: max-content;
+	height: max-content;
+	margin: 0 auto;
+}
+.nochat-content{
+	flex-direction: row;
+	width: 100%;
+}
+.nochat p{
+	margin:50px;
+	width: 220px;
+	text-align: center;
 }

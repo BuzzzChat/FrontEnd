@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+		<title>Buzzz</title>
+
+		<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow|Material+Icons&display=swap" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
+
+		<script src="./http_cdnjs.cloudflare.com_ajax_libs_sockjs-client_1.1.4_sockjs.js"></script>
+		<script src="./http_cdnjs.cloudflare.com_ajax_libs_stomp.js_2.3.3_stomp.js"></script>
+		<script src="api.js"></script>
+
+		<script src="./vue.min.js"></script>
+		<script src="./httpVueLoader.min.js"></script>
+		<script src="./vue-router.min.js"></script>
+		<script src="./axios.min.js"></script>
+	</head>
+	<body>
+		<noscript>
+			<h1>Please enable JavaScript.</h1>
+		</noscript>
+		<div id="app">
+			<!-- router outlet -->
+			<router-view @authenticated="setAuthenticated"></router-view>
+		</div>
+		<script src="./main.js" type="module"></script>
+	</body>
+	<!-- vim: set tabstop=2 shiftwidth=2 noexpandtab: -->
+</html>
